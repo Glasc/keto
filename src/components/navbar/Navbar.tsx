@@ -6,7 +6,7 @@ import {
   RiInformationLine,
   RiFilePaper2Line,
   RiContactsLine,
-} from "react-icons/ri";
+} from "react-icons/ri/index.js";
 import { useState } from "react";
 
 const routes = [
