@@ -1,0 +1,15 @@
+.btn {
+  padding: 0.75em 1.5em;
+  border: none;
+  background-color: white;
+  color: var(--color-primary);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  font-weight: 400;
+  font-family: inherit;
+  font-size: var(--text-base);
+}
+
+.btn-primary {
+  background: var(--background-blue);
+}

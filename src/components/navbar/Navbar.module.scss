@@ -1,0 +1,92 @@
+nav {
+  z-index: 3;
+  background-color: var(--background-brown);
+  // border-bottom: 1px solid #e9ecef;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  padding: 1em 2em;
+  margin: 0 auto;
+  position: relative;
+  @media (min-width: 640px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: block;
+    width: 60px;
+    @media (min-width: 640px) {
+      margin-inline: 0;
+      width: 80px;
+    }
+  }
+
+  .links {
+    width: 100%;
+    margin-top: 2em;
+    display: flex;
+    font-size: var(--text-lg);
+    @media (min-width: 640px) {
+      width: auto;
+      display: flex;
+      align-items: baseline;
+      gap: 2em;
+      margin-top: 0;
+    }
+
+    @media (max-width: 640px) {
+      display: none;
+    }
+
+    .link {
+      font-weight: 400;
+      color: var(--color-primary);
+      .linkIcon {
+        display: none;
+      }
+      @media (max-width: 640px) {
+        .linkIcon {
+          display: block;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          gap: 0.75em;
+          transition: all 250ms;
+          padding: 0.25em 0;
+          &:hover {
+            padding-left: 0.75em;
+            transition: all 270ms;
+          }
+          &:focus {
+            padding-left: 0.75em;
+            transition: all 270ms;
+          }
+        }
+      }
+    }
+  }
+
+  .active {
+    display: inherit;
+  }
+
+  .toggleNavbarButton {
+    position: absolute;
+    width: 30px;
+    top: 35px;
+    right: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    @media (min-width: 640px) {
+      display: none;
+    }
+  }
+}

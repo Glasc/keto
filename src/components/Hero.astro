@@ -1,0 +1,65 @@
+---
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="information space-y-4">
+      <h2 class="title">Bring all them together</h2>
+      <p class="description">
+        Our cake bakery is small but with a big love for wonderful desserts is
+        small but with a big love for wonderful desserts.
+      </p>
+      <button class="btn btn-primary">Start now</button>
+    </div>
+    <img class="image" src="assets/hero.png" alt="" />
+  </div>
+</section>
+
+<style lang="scss">
+  .hero {
+    z-index: 1;
+    margin-top: 3em;
+  }
+
+  .container {
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      align-items: center;
+    }
+    .information {
+      width: 100%;
+      max-width: 45ch;
+      @media (max-width: 768px) {
+        text-align: center;
+        width: 100%;
+        max-width: 45ch;
+        margin: 0 auto;
+      }
+      .title {
+        font-size: var(--text-5xl);
+        font-weight: 600;
+        line-height: 1.2;
+      }
+      .description {
+        color: var(--color-secondary);
+      }
+      .button {
+      }
+    }
+
+    .image {
+      display: block;
+      width: 70%;
+      margin: 3em auto;
+      max-width: 300px;
+
+      @media (min-width: 768px) {
+        margin: 0;
+        max-width: 400px;
+        justify-self: flex-end; 
+      }
+    }
+  }
+</style>
