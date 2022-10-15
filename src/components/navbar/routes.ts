@@ -1,6 +1,4 @@
 import {
-  RiMenuLine,
-  RiCloseLine,
   RiHome2Line,
   RiInformationLine,
   RiFilePaper2Line,
@@ -30,4 +28,4 @@ const routes = [
   },
 ];
 
-export default routes
+export default routes;

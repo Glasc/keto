@@ -1,19 +1,13 @@
 import routes from "./routes";
-import {
-  RiMenuLine,
-  RiCloseLine,
-  RiHome2Line,
-  RiInformationLine,
-  RiFilePaper2Line,
-  RiContactsLine,
-} from "react-icons/ri/index.js";
+
 
 export const Navbar = () => {
   return (
     <nav className="relative z-30 py-2">
       <div className="container navbar flex justify-between">
         <div className="grid w-full grid-cols-3 sm:block sm:w-auto">
-          <DropDown />
+          <div></div>
+          {/* <DropDown /> */}
           <img
             className="mx-auto w-16 py-2 sm:w-20"
             src="assets/logo.png"

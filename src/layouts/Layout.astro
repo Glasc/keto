@@ -6,6 +6,13 @@ export interface Props {
 import "../style/base.css";
 
 const { title } = Astro.props;
+
+import {
+  RiHome2Line,
+  RiInformationLine,
+  RiFilePaper2Line,
+  RiContactsLine,
+} from "react-icons/ri/index.js";
 ---
 
 <!DOCTYPE html>
@@ -19,6 +26,21 @@ const { title } = Astro.props;
   </head>
   <body>
     <slot />
+
+    <div class="btm-nav sticky z-30 sm:hidden">
+      <button class="active">
+        <RiHome2Line />
+      </button>
+      <button>
+        <RiInformationLine />
+      </button>
+      <button>
+        <RiFilePaper2Line />
+      </button>
+      <button>
+        <RiContactsLine />
+      </button>
+    </div>
     <style is:global lang="scss"></style>
   </body>
 </html>
