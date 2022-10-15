@@ -1,79 +1,48 @@
 ---
+import { useSanityClient } from "astro-sanity";
+
+type Product = {
+  _createdAt: string;
+  _id: string;
+  _rev: string;
+  _type: string;
+  _updatedAt: string;
+  description: string;
+  title: string;
+};
+
+export async function getFirstBlogPost(): Promise<Product[]> {
+  try {
+    const query = `*[_type == "category"]`;
+    const firstPost = (await useSanityClient().fetch(query)) as Product[];
+    return firstPost;
+  } catch (err) {
+    return [];
+  }
+}
+
+const products = await getFirstBlogPost();
 ---
 
 <section class="my-10">
   <div class="container">
     <div class="flex flex-wrap justify-center gap-8">
-      <div class="card card-compact w-80 bg-base-100 shadow-xl">
-        <figure><img src="assets/products.jpg" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Check out</button>
+      {
+        products?.map((product: Product) => (
+          <div class="card card-compact bg-base-100 w-80 shadow-xl">
+            <figure>
+              <img src="assets/products.jpg" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">{product?.title}</h2>
+              <p>{product?.description}</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">Check out</button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="card card-compact w-80 bg-base-100 shadow-xl">
-        <figure><img src="assets/products.jpg" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Check out</button>
-          </div>
-        </div>
-      </div>
-      <div class="card card-compact w-80 bg-base-100 shadow-xl">
-        <figure><img src="assets/products.jpg" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Check out</button>
-          </div>
-        </div>
-      </div>
-      <div class="card card-compact w-80 bg-base-100 shadow-xl">
-        <figure><img src="assets/products.jpg" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Check out</button>
-          </div>
-        </div>
-      </div>
-      <div class="card card-compact w-80 bg-base-100 shadow-xl">
-        <figure><img src="assets/products.jpg" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Check out</button>
-          </div>
-        </div>
-      </div>
-      <div class="card card-compact w-80 bg-base-100 shadow-xl">
-        <figure><img src="assets/products.jpg" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Check out</button>
-          </div>
-        </div>
-      </div>
-      <div class="card card-compact w-80 bg-base-100 shadow-xl">
-        <figure><img src="assets/products.jpg" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Check out</button>
-          </div>
-        </div>
-      </div>
+        ))
+      }
     </div>
   </div>
 </section>
