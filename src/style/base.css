@@ -1,10 +1,53 @@
-ul {
-  list-style-type: none;
+:root {
+  --color-primary: #13171b;
+  --color-secondary: #4c5c6b;
+  --color-tertiary: #a6afba;
+  --background-primary: #f6f7f9;
+
+  --background-blue: #a4dfdd;
+  --background-brown: #f1e7dd;
+}
+
+body {
+  background-color: var(--background-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 @font-face {

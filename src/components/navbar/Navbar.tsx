@@ -1,4 +1,4 @@
-import styles from "./Navbar.module.scss";
+import routes from "./routes";
 import {
   RiMenuLine,
   RiCloseLine,
@@ -7,87 +7,80 @@ import {
   RiFilePaper2Line,
   RiContactsLine,
 } from "react-icons/ri/index.js";
-import { useState } from "react";
-
-const routes = [
-  {
-    href: "/inicio",
-    title: "Inicio",
-    icon: RiHome2Line,
-  },
-  {
-    href: "/sobre-nosotros",
-    title: "Sobre nosotros",
-    icon: RiInformationLine,
-  },
-  {
-    href: "/blog",
-    title: "Blog",
-    icon: RiFilePaper2Line,
-  },
-  {
-    href: "/contacto",
-    title: "Contacto",
-    icon: RiContactsLine,
-  },
-];
 
 export const Navbar = () => {
-  const [areLinksShowing, setAreLinksShowing] = useState(false);
-
-  const handleToggleClick = () => {
-    setAreLinksShowing((prev) => !prev);
-  };
-
   return (
-    <nav>
-      <div className={styles.container}>
-        <img className={styles.logo} src="/assets/logo.png" alt="logo" />
-        <Links
-          areLinksShowing={areLinksShowing}
-          setAreLinksShowing={setAreLinksShowing}
-        />
-        <button
-          className={styles.toggleNavbarButton}
-          onClick={handleToggleClick}
-        >
-          {areLinksShowing ? (
-            <RiCloseLine size={30} />
-          ) : (
-            <RiMenuLine size={28} />
-          )}
-        </button>
+    <nav className=" py-2">
+      <div className="container navbar flex justify-between">
+        <div className="grid w-full grid-cols-3 sm:block sm:w-auto">
+          <DropDown />
+          <img
+            className="mx-auto w-16 py-2 sm:w-20"
+            src="assets/logo.png"
+            alt=""
+          />
+          <div></div>
+        </div>
+        <FullNavbar />
       </div>
     </nav>
   );
 };
 
 interface LinksProps {
-  areLinksShowing: boolean;
-  setAreLinksShowing: React.Dispatch<React.SetStateAction<boolean>>;
+  icons?: boolean;
 }
 
-const Links = ({ areLinksShowing, setAreLinksShowing }: LinksProps) => {
-  const active = areLinksShowing ? styles.active : "";
-
+const Links = ({ icons = false }: LinksProps) => {
   return (
-    <ul className={`${styles.links} ${active}`}>
-      {routes.map((route, idx) => {
-        return (
-          <li
-            key={idx}
-            className={styles.link}
-            // onClick={() => setAreLinksShowing(false)}
-          >
-            <a href={route.href}>
-              <div className={styles.linkIcon}>
-                <route.icon size={28} color={"#172b4d"} />
-              </div>
-              <p>{route.title}</p>
-            </a>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      {routes.map((route) => (
+        <li key={route.href} className="flex text-neutral-content sm:block">
+          <a href={route.href}>
+            {icons && <route.icon size={28} color={"#172b4d"} />}
+            {route.title}
+          </a>
+        </li>
+      ))}
+    </>
+  );
+};
+
+const FullNavbar = () => {
+  return (
+    <div className="hidden sm:flex">
+      <ul className="menu menu-horizontal p-0">
+        <Links />
+      </ul>
+    </div>
+  );
+};
+
+const DropDown = () => {
+  return (
+    <div className="dropdown sm:hidden">
+      <label tabIndex={0} className="btn btn-ghost sm:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          />
+        </svg>
+      </label>
+      <ul
+        tabIndex={0}
+        className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
+      >
+        <Links icons={true} />
+      </ul>
+    </div>
   );
 };
