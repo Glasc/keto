@@ -10,7 +10,7 @@ import {
 
 export const Navbar = () => {
   return (
-    <nav className=" py-2">
+    <nav className="relative z-20 py-2">
       <div className="container navbar flex justify-between">
         <div className="grid w-full grid-cols-3 sm:block sm:w-auto">
           <DropDown />
@@ -35,7 +35,7 @@ const Links = ({ icons = false }: LinksProps) => {
   return (
     <>
       {routes.map((route) => (
-        <li key={route.href} className="flex text-neutral-content sm:block">
+        <li key={route.href} className="flex text-neutral-content md:text-lg sm:block">
           <a href={route.href}>
             {icons && <route.icon size={28} color={"#172b4d"} />}
             {route.title}
