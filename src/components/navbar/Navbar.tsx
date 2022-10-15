@@ -10,7 +10,7 @@ import {
 
 export const Navbar = () => {
   return (
-    <nav className="relative z-20 py-2">
+    <nav className="relative z-30 py-2">
       <div className="container navbar flex justify-between">
         <div className="grid w-full grid-cols-3 sm:block sm:w-auto">
           <DropDown />
