@@ -7,7 +7,7 @@ import {
 
 const routes = [
   {
-    href: "/inicio",
+    href: "/",
     title: "Inicio",
     icon: RiHome2Line,
   },

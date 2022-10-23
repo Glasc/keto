@@ -1,43 +1,45 @@
 ---
 import { useSanityClient } from "astro-sanity";
+import type { Category } from "../pages/products/[category].astro";
 
-type Product = {
-  _createdAt: string;
-  _id: string;
-  _rev: string;
-  _type: string;
-  _updatedAt: string;
-  description: string;
-  title: string;
-};
-
-export async function getFirstBlogPost(): Promise<Product[]> {
+export async function getCategories(): Promise<Category[]> {
   try {
-    const query = `*[_type == "category"]`;
-    const firstPost = (await useSanityClient().fetch(query)) as Product[];
-    return firstPost;
+    const query = `*[_type == "category"]{
+  _id, 
+  description, 
+  products[]->{_id, _type, price, priceSmall, priceMedium, priceLarge, title}, 
+  title, 
+  slug
+}`;
+    const listOfCategories = (await useSanityClient().fetch(
+      query
+    )) as Category[];
+
+    return listOfCategories;
   } catch (err) {
     return [];
   }
 }
 
-const products = await getFirstBlogPost();
+const categories = await getCategories();
 ---
 
-<section class="my-10">
+<section class="py-10">
   <div class="container">
     <div class="flex flex-wrap justify-center gap-8">
       {
-        products?.map((product: Product) => (
-          <div class="card card-compact bg-base-100 w-80 shadow-xl">
+        categories?.map((category: Category) => (
+          <div class="card-compact card w-80 bg-base-100 shadow-xl">
             <figure>
               <img src="assets/products.jpg" alt="Shoes" />
             </figure>
             <div class="card-body">
-              <h2 class="card-title">{product?.title}</h2>
-              <p>{product?.description}</p>
+              <h2 class="card-title">{category?.title}</h2>
+              <p>{category?.description}</p>
               <div class="card-actions justify-end">
-                <button class="btn btn-primary">Check out</button>
+                <a class="block" href={`/products/${category?.slug.current}`}>
+                  <button class="btn btn-primary">Check out</button>
+                </a>
               </div>
             </div>
           </div>

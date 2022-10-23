@@ -1,0 +1,140 @@
+---
+import { useSanityClient } from "astro-sanity";
+import Layout from "../../layouts/Layout.astro";
+
+import { RiHome3Fill, RiPriceTag3Line } from "react-icons/ri/index.js";
+
+type Props = Path["props"];
+
+type Path = {
+  params: { category: string };
+  props: { description: string; products: Product[]; title: string };
+};
+
+export type Category = {
+  _id: string;
+  title: string;
+  description: string;
+  products: Product[];
+  slug: {
+    current: string;
+  };
+};
+
+export type Product = {
+  _id: string;
+  _type: string;
+  price: number;
+  priceSmall: number;
+  priceMedium: number;
+  priceLarge: number;
+  title: string;
+  description: string;
+};
+
+export async function getStaticPaths(): Promise<Path[]> {
+  const query = `*[_type == "category"]{
+  _id, 
+  description, 
+  products[]->{_id, _type, price, priceSmall, priceMedium, priceLarge, title, description}, 
+  title, 
+  slug
+}`;
+
+  const listOfCategories = (await useSanityClient().fetch(query)) as Category[];
+
+  const paths = listOfCategories?.map(
+    ({ slug, products, description, title }): Path => ({
+      params: { category: slug?.current.toString() },
+      props: {
+        products,
+        description,
+        title,
+      },
+    })
+  );
+
+  return paths;
+}
+
+const { category } = Astro.params;
+
+const props = Astro.props;
+---
+
+<Layout title={props?.title || "category"}>
+  <div class="pt-4 pb-16 bg-base-200">
+    <div class="container text-sm breadcrumbs">
+      <!-- RiHome3Fill,
+      RiPriceTag3Line -->
+      <ul class="text-lg">
+        <li>
+          <a href="/#Categories"
+            ><RiHome3Fill /> <span class="block ml-2">Inicio</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><RiPriceTag3Line /> <span class="block ml-2">{props?.title}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <main class="px-3 container">
+      <div class="py-6">
+        <h1 class="text-center text-4xl font-semibold">{props?.title}</h1>
+        <p class="text-center text-md mt-1 text-neutral-content">
+          {props?.description}
+        </p>
+      </div>
+
+      <section class="flex justify-between flex-wrap gap-4 lg:gap-10 py-8">
+        {
+          props?.products?.map(
+            ({
+              title,
+              price,
+              priceLarge,
+              priceMedium,
+              priceSmall,
+            }: Product) => {
+              return (
+                <div class="card relative mx-auto w-80 bg-base-100 shadow-lg ">
+                  <figure>
+                    <img src="/assets/products.jpg" alt="Shoes" />
+                  </figure>
+                  <div class="card-body">
+                    <h2 class="card-title lg:text-2xl">{title}</h2>
+                    <p class="mb-4 text-neutral-content">
+                      If a dog chews shoes whose shoes does he choose?
+                    </p>
+                    {price && <p class="font-regular text-xl">${price}</p>}
+                    {priceSmall && (
+                      <div class="flex items-baseline justify-start space-x-2">
+                        <p class="">Chico: </p>
+                        <span class="font-regular text-xl">${priceSmall}</span>
+                      </div>
+                    )}
+                    {priceMedium && (
+                      <div class="flex items-baseline justify-start space-x-2">
+                        <p class="">Mediano:{"  "}</p>
+                        <span class="font-regular text-xl">${priceMedium}</span>
+                      </div>
+                    )}
+                    {priceLarge && (
+                      <div class="flex items-baseline justify-start space-x-2">
+                        <p class="">Grande: </p>
+                        <span class="font-regular text-xl">${priceLarge}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            }
+          )
+        }
+      </section>
+    </main>
+  </div>
+</Layout>

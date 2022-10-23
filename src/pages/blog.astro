@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Blog">
+  <main class="container py-8">
+    <h1 class="font-bold text-3xl text-center">Blog</h1>
+
+    <section class="flex flex-col space-y-4 pt-5">
+      <article
+        class="bg-base-100 p-6 rounded-lg flex space-x-4 shadow-md border-primary transition ease-in-out delay-150 boder-l-8 hover:bg-indigo-500 duration-200"
+      >
+        <img class="w-52 rounded-lg" src="/assets/products.jpg" alt="" />
+        <section>
+          <div class="flex justify-between items-center">
+            <h2 class="font-semibold text-xl mt-2 mb-1">
+              Nuevo postre bajo en azúcar
+            </h2>
+            <p>20/10/2022</p>
+          </div>
+          <p class="text-neutral-content mt-3">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Accusantium magnam mollitia, doloremque iure veniam ipsa illum
+            cumque dignissimos! Quia, quos?
+          </p>
+        </section>
+      </article>
+      <article
+        class="bg-base-100 p-6 rounded-lg flex space-x-4 shadow-md border-primary hover:border-l-8"
+      >
+        <img class="w-52 rounded-lg" src="/assets/products.jpg" alt="" />
+        <section>
+          <div class="flex justify-between items-center">
+            <h2 class="font-semibold text-xl mt-2 mb-1">
+              Nuevo postre bajo en azúcar
+            </h2>
+            <p>20/10/2022</p>
+          </div>
+          <p class="text-neutral-content mt-3">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Accusantium magnam mollitia, doloremque iure veniam ipsa illum
+            cumque dignissimos! Quia, quos?
+          </p>
+        </section>
+      </article>
+      <article
+        class="bg-base-100 p-6 rounded-lg flex space-x-4 shadow-md border-primary hover:border-l-8"
+      >
+        <img class="w-52 rounded-lg" src="/assets/products.jpg" alt="" />
+        <section>
+          <div class="flex justify-between items-center">
+            <h2 class="font-semibold text-xl mt-2 mb-1">
+              Nuevo postre bajo en azúcar
+            </h2>
+            <p>20/10/2022</p>
+          </div>
+          <p class="text-neutral-content mt-3">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Accusantium magnam mollitia, doloremque iure veniam ipsa illum
+            cumque dignissimos! Quia, quos?
+          </p>
+        </section>
+      </article>
+    </section>
+
+    <div class="flex justify-center pt-5">
+      <div class="btn-group">
+        <button class="btn bg-primary text-primary-content">«</button>
+        <button class="btn bg-primary text-primary-content">Page 22</button>
+        <button class="btn bg-primary text-primary-content">»</button>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,17 +1,16 @@
 import routes from "./routes";
 
-
 export const Navbar = () => {
   return (
-    <nav className="relative z-30 py-2">
+    <nav className="relative z-30 bg-base-200">
       <div className="container navbar flex justify-between">
         <div className="grid w-full grid-cols-3 sm:block sm:w-auto">
-          <div></div>
-          {/* <DropDown /> */}
+          {/* <div></div> */}
+          <DropDown />
           <img
-            className="mx-auto w-16 py-2 sm:w-20"
-            src="assets/logo.png"
-            alt=""
+            className="mx-auto w-16 py-2 sm:w-16"
+            src="/loguito.png"
+            alt="Img"
           />
           <div></div>
         </div>
@@ -29,7 +28,10 @@ const Links = ({ icons = false }: LinksProps) => {
   return (
     <>
       {routes.map((route) => (
-        <li key={route.href} className="flex text-neutral-content md:text-lg sm:block">
+        <li
+          key={route.href}
+          className="flex text-neutral-content sm:block md:text-md"
+        >
           <a href={route.href}>
             {icons && <route.icon size={28} color={"#172b4d"} />}
             {route.title}
