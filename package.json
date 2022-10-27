@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
-  },
+  },  
   "dependencies": {
     "@astrojs/image": "^0.9.3",
     "@astrojs/react": "^1.2.0",
