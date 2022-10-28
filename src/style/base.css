@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --color-primary: #13171b;
   --color-secondary: #4c5c6b;
   --color-tertiary: #a6afba;
@@ -6,7 +6,7 @@
 
   --background-blue: #a4dfdd;
   --background-brown: #f1e7dd;
-}
+} */
 
 body {
   background-color: var(--background-primary);

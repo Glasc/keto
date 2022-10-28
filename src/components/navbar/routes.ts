@@ -2,7 +2,7 @@ import {
   RiHome2Line,
   RiInformationLine,
   RiFilePaper2Line,
-  RiContactsLine,
+  RiMailSendLine,
 } from "react-icons/ri/index.js";
 
 const routes = [
@@ -22,9 +22,9 @@ const routes = [
     icon: RiFilePaper2Line,
   },
   {
-    href: "/contacto",
+    href: "mailto: lanutris@hotmail.com",
     title: "Contacto",
-    icon: RiContactsLine,
+    icon: RiMailSendLine,
   },
 ];
 
