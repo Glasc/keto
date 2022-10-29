@@ -1,4 +1,4 @@
-import { RiArrowDownSLine } from "react-icons/ri";
+import { RiArrowDownSLine } from "react-icons/ri/index.js";
 import React, { useState } from "react";
 
 export type Category = {
