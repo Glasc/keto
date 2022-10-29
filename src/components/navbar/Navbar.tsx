@@ -2,16 +2,18 @@ import routes from "./routes";
 
 export const Navbar = () => {
   return (
-    <nav className="relative z-30">
+    <nav className="relative z-40">
       <div className="container navbar flex justify-between">
         <div className="grid w-full grid-cols-3 sm:block sm:w-auto">
           {/* <div></div> */}
           <DropDown />
-          <img
-            className="mx-auto w-16 py-2 sm:w-16"
-            src="/loguito.png"
-            alt="Img"
-          />
+          <a href="/">
+            <img
+              className="mx-auto w-16 py-2 sm:w-16"
+              src="/loguito.png"
+              alt="Img"
+            />
+          </a>
           <div></div>
         </div>
         <FullNavbar />
@@ -30,7 +32,7 @@ const Links = ({ icons = false }: LinksProps) => {
       {routes.map((route) => (
         <li
           key={route.href}
-          className="flex md:text-lg text-neutral-content sm:block md:text-md"
+          className="md:text-md flex text-neutral-content sm:block md:text-lg"
         >
           <a href={route.href}>
             {icons && <route.icon size={28} color={"#172b4d"} />}

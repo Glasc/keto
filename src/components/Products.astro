@@ -2,13 +2,14 @@
 import { useSanityClient } from "astro-sanity";
 import type { Category } from "../pages/products/[category].astro";
 import { RiArrowDownSLine } from "react-icons/ri/index.js";
+import { Categories } from "./Categories";
 
 export async function getCategories(): Promise<Category[]> {
   try {
     const query = `*[_type == "category"]{
   _id, 
   description, 
-  products[]->{_id, _type, price, priceSmall, priceMedium, priceLarge, title}, 
+  products[]->{_id, _type, price, priceSmall, priceMedium, priceLarge, description, title}, 
   title, 
   slug
 }`;
@@ -25,127 +26,4 @@ export async function getCategories(): Promise<Category[]> {
 const categories = await getCategories();
 ---
 
-<section class="pb-10">
-  <div class="container relative">
-    <section
-      class="justify-center my-6 py-4 sticky top-0 bg-base-100 z-10 hidden md:flex font-medium"
-    >
-      <ul class="menu menu-horizontal bg-base-100 rounded-box mx-auto">
-        <li class="bg-primary text-primary-content">
-          <a>Item 1</a>
-        </li>
-        <li class="bg-base-300">
-          <a>Item 2</a>
-        </li>
-        <li class="bg-base-300">
-          <a>Item 3</a>
-        </li>
-      </ul>
-    </section>
-
-    <section
-      class="flex justify-center my-6 py-4 sticky top-0 bg-base-100 z-10 md:hidden font-medium"
-    >
-      <ul class="menu menu-horizontal bg-base-100 mx-auto">
-        <li></li>
-        <li tabindex="0" class="rounded-full bg-primary text-primary-content">
-          <div>
-            <RiArrowDownSLine size={20} />
-            Categoría:
-            <span>postres</span>
-          </div>
-          <ul class="rounded-box bg-base-100 p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-            <li><a>Submenu 3</a></li>
-          </ul>
-        </li>
-        <li></li>
-      </ul>
-    </section>
-
-    <div class="flex flex-wrap justify-center gap-4 md:gap-8">
-      <div class="card w-64 md:w-80 bg-base-200 shadow-sm border border-gray-200">
-        <figure class="border-none">
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title text-xl text-neutral-content">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-        </div>
-      </div>
-      <div class="card w-64 md:w-80 bg-base-200 shadow-sm border border-gray-200">
-        <figure class="border-none">
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title text-neutral-content">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-        </div>
-      </div>
-      <div class="card w-64 md:w-80 bg-base-200 shadow-sm border border-gray-200">
-        <figure class="border-none">
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title text-neutral-content">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-        </div>
-      </div>
-      <div class="card w-64 md:w-80 bg-base-200 shadow-sm border border-gray-200">
-        <figure class="border-none">
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title text-neutral-content">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-        </div>
-      </div>
-      <div class="card w-64 md:w-80 bg-base-200 shadow-sm border border-gray-200">
-        <figure class="border-none">
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title text-neutral-content">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-        </div>
-      </div>
-      <div class="card w-64 md:w-80 bg-base-200 shadow-sm border border-gray-200">
-        <figure class="border-none">
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title text-neutral-content">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-        </div>
-      </div>
-      <div class="card w-64 md:w-80 bg-base-200 shadow-sm border border-gray-200">
-        <figure class="border-none">
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title text-neutral-content">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-        </div>
-      </div>
-      <!-- {
-        categories?.map((category: Category) => (
-          <div class="card-compact card w-64 md:w-80 bg-base-100 shadow-xl">
-            <figure>
-              <img src="assets/products.jpg" alt="Shoes" />
-            </figure>
-            <div class="card-body">
-              <h2 class="card-title">{category?.title}</h2>
-              <p>{category?.description}</p>
-              <div class="card-actions justify-end">
-                <a class="block" href={`/products/${category?.slug.current}`}>
-                  <button class="btn btn-primary">Check out</button>
-                </a>
-              </div>
-            </div>
-          </div>
-        ))
-      } -->
-    </div>
-  </div>
-</section>
+<Categories categories={categories} client:load/>
