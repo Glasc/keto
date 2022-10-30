@@ -54,7 +54,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
               } text-primary-content`}
             >
               <button onClick={() => handleCategoryClick(null)}>
-                <a href="#categories">Todos</a>
+                <a >Todos</a>
               </button>
             </li>
             {categories?.map((category) => {
@@ -67,7 +67,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
                   key={category._id}
                 >
                   <button onClick={() => handleCategoryClick(category._id)}>
-                    <a href="#categories">{category.title}</a>
+                    <a >{category.title}</a>
                   </button>
                 </li>
               );
@@ -97,7 +97,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
                     className="w-full"
                     onClick={() => handleCategoryClick(null)}
                   >
-                    <a href="#categories">Todos</a>
+                    <a >Todos</a>
                   </button>
                 </li>
                 {categories?.map((category) => {
@@ -109,7 +109,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
                       } m-0 p-0 text-primary-content`}
                       key={category._id}
                     >
-                      <a className="" href="#categories">
+                      <a className="" >
                         <button
                           className="w-full text-left"
                           onClick={() => handleCategoryClick(category._id)}
