@@ -134,7 +134,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
               return (
                 <div
                   key={product._id}
-                  className="card w-64 border border-gray-200 bg-base-200 shadow-sm md:w-80"
+                  className="card w-64 border border-gray-200 bg-base-100 shadow-sm md:w-80"
                 >
                   <figure className="border-none">
                     <img src="https://placeimg.com/400/225/arch" alt="Shoes" />

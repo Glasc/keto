@@ -1,0 +1,86 @@
+---
+import { useSanityClient } from "astro-sanity";
+import Layout from "../../layouts/Layout.astro";
+import { toPlainTextAndSummarized, transformDate } from "../../utils";
+
+export type Post = {
+  _id: string;
+  publishedAt: string;
+  text: any;
+  title: string;
+};
+
+export async function getCategories(): Promise<Post[]> {
+  try {
+    const query = `*[_type == "post"]{
+  _id,
+  publishedAt,
+  text,
+  title,
+}`;
+    const listOfPosts = await useSanityClient().fetch(query);
+
+    console.log(typeof listOfPosts[0].publishedAt);
+
+    const listOfPostWithTransformedData = listOfPosts?.map((post: Post) => {
+      return { ...post, publishedAt: transformDate(post.publishedAt) };
+    });
+
+    return listOfPostWithTransformedData;
+  } catch (err) {
+    console.log("Oops!");
+    return [];
+  }
+}
+
+const posts = await getCategories();
+
+// <PortableText value={post.text} />
+---
+
+<Layout title="Blog">
+  <main class="max-w-[60rem] mx-auto px-6 pt-6 pb-10 flex flex-col">
+    <h1 class="font-semibold text-4xl text-center text-neutral-content">
+      Blog
+    </h1>
+
+    <hr />
+
+    <section class="space-y-4 py-8 block mx-auto">
+      {
+        posts?.map((post) => {
+          return (
+            <a class="hover:no-underline" href={`/blog/${post._id}`}>
+              <article class="grid max-w-sm cursor-pointer grid-cols-1 items-start space-x-3 rounded-md border border-gray-200 bg-base-100 shadow transition duration-300 ease-in-out hover:bg-[#e3f6f6] md:max-w-full md:grid-cols-[30%_1fr]">
+                <img
+                  class="w-full self-center rounded-md"
+                  src="/assets/products.jpg"
+                  alt=""
+                />
+                <section class="p-4">
+                  <div class="flex items-center justify-between">
+                    <h2 class="mt-2 mb-1 text-xl font-semibold text-neutral-content">
+                      {post.title}
+                    </h2>
+                    <p class="ml-2 text-base-content">{post.publishedAt}</p>
+                  </div>
+                  <div class="xd mt-3 ">
+                    {toPlainTextAndSummarized(post.text, 45)}
+                  </div>
+                </section>
+              </article>
+            </a>
+          );
+        })
+      }
+    </section>
+
+    <div class="flex justify-center">
+      <div class="btn-group">
+        <button class="btn bg-primary text-primary-content">«</button>
+        <button class="btn bg-primary text-primary-content">Page 1</button>
+        <button class="btn bg-primary text-primary-content">»</button>
+      </div>
+    </div>
+  </main>
+</Layout>

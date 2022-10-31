@@ -1,0 +1,89 @@
+---
+import { PortableText } from "astro-portabletext/.";
+import { useSanityClient } from "astro-sanity";
+import Layout from "../../layouts/Layout.astro";
+import { transformDate } from "../../utils";
+import { RiFilePaper2Line } from "react-icons/ri/index.js";
+
+import type { Post } from "./index.astro";
+
+type Path = {
+  params: {
+    id: string;
+  };
+  props: Post;
+};
+
+export async function getStaticPaths(): Promise<Path[]> {
+  const query = `*[_type == "post"]{
+  _id,
+  publishedAt,
+  text,
+  title,
+}`;
+
+  const listOfPosts = (await useSanityClient().fetch(query)) as Post[];
+
+  const paths = listOfPosts?.map(
+    ({ _id, publishedAt, text, title }): Path => ({
+      params: { id: _id.toString() },
+      props: {
+        _id,
+        publishedAt,
+        text,
+        title,
+      },
+    })
+  );
+
+  return paths;
+}
+
+const props = Astro.props as Post;
+---
+
+<Layout title="Item">
+  <main class="max-w-full lg:w-[45rem] mx-auto py-4 bg-base-100 p-8 mt-4 mb-8 rounded-md shadow">
+    <div class="my-2 flex justify-between text-lg items-center">
+      <a href="/blog"><button class="btn btn-link text-black flex items-center space-x-2 px-0">{"<"}<RiFilePaper2Line /><span>Blog</span></button></a>
+
+      <p class="text-gray-500 mr-4">
+        {transformDate(props?.publishedAt)}
+      </p>
+    </div>
+
+    <img class="block mx-auto" src="/assets/products.jpg" alt="alt" />
+    <PortableText value={props?.text} />
+  </main>
+</Layout>
+
+<style>
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: 550;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    color: #213547;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+</style>
