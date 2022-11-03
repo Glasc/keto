@@ -40,32 +40,30 @@ const posts = await getCategories();
 
 <Layout title="Blog">
   <main class="max-w-[60rem] mx-auto px-6 pt-6 pb-10 flex flex-col">
-    <h1 class="font-semibold text-4xl text-center text-neutral-content">
+    <h1 class="font-bold text-4xl text-center text-neutral-content">
       Blog
     </h1>
 
-    <hr />
-
-    <section class="space-y-4 py-8 block mx-auto">
+    <section class="space-y-6 py-8 block mx-auto">
       {
         posts?.map((post) => {
           return (
-            <a class="hover:no-underline" href={`/blog/${post._id}`}>
-              <article class="grid max-w-sm cursor-pointer grid-cols-1 items-start space-x-3 rounded-md border border-gray-200 bg-base-100 shadow transition duration-300 ease-in-out hover:bg-[#e3f6f6] md:max-w-full md:grid-cols-[30%_1fr]">
+            <a class="block hover:no-underline" href={`/blog/${post._id}`}>
+              <article class="bg-base-100 hover:ring-secondary grid max-w-sm cursor-pointer grid-cols-1 items-start space-x-3 rounded-md ring-1 shadow-sm ring-slate-900/5 transition duration-300 ease-in-out hover:shadow-lg hover:ring-2 md:max-w-full md:grid-cols-[30%_1fr]">
                 <img
-                  class="w-full self-center rounded-md"
+                  class="w-ful self-center rounded-md"
                   src="/assets/products.jpg"
                   alt=""
                 />
                 <section class="p-4">
                   <div class="flex items-center justify-between">
-                    <h2 class="mt-2 mb-1 text-xl font-semibold text-neutral-content">
+                    <h2 class="text-neutral-content mt-2 mb-1 text-xl font-semibold">
                       {post.title}
                     </h2>
-                    <p class="ml-2 text-base-content">{post.publishedAt}</p>
+                    <p class="text-base-content ml-2">{post.publishedAt}</p>
                   </div>
                   <div class="xd mt-3 ">
-                    {toPlainTextAndSummarized(post.text, 45)}
+                    {toPlainTextAndSummarized(post.text, 25)}
                   </div>
                 </section>
               </article>

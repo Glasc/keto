@@ -46,7 +46,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
   return (
     <section className="pb-10">
       <div className="container relative">
-        <section className="sticky top-0 z-10 my-6 hidden justify-center bg-base-200 py-4 font-medium md:flex">
+        <section className="sticky top-0 z-50 my-6 hidden justify-center bg-base-200 py-4 font-medium md:flex">
           <ul className="menu rounded-box menu-horizontal mx-auto bg-base-100">
             <li
               className={`bg-base-300 ${
@@ -75,7 +75,8 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
           </ul>
         </section>
 
-        <section className="sticky top-0 z-10 my-6 flex justify-center py-4 font-medium md:hidden">
+        {/* mobile */}
+        <section className="z-60 sticky top-0 my-6 flex justify-center py-4 font-medium md:hidden">
           <ul className="menu menu-horizontal mx-auto">
             <li></li>
             <li
@@ -134,7 +135,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
               return (
                 <div
                   key={product._id}
-                  className="card w-64 ring-1 ring-slate-900/5 bg-base-100 shadow-sm md:w-80"
+                  className="card w-64 bg-base-100 shadow-sm ring-1 ring-slate-900/5 md:w-80"
                 >
                   <figure className="border-none">
                     <img src="https://placeimg.com/400/225/arch" alt="Shoes" />

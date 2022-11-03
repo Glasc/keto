@@ -5,14 +5,14 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Sobre nosotros">
   <main class="">
     <section
-      class="max-w-md md:max-w-5xl py-8 flex flex-col gap-5 md:flex-row mx-auto px-4"
+      class="max-w-md md:max-w-5xl py-8 flex flex-col gap-5 md:flex-row mx-auto px-6"
     >
       <div class="md:w-1/2 md:ml-16">
         <img class="w-full" src="/assets/test.jpg" alt="" />
       </div>
 
       <div
-        class="md:w-1/2 md:relative top-10 right-16 md:rounded-lg md:bg-base-100 md:p-8 md:ring-1 md:ring-slate-900/5"
+        class="md:w-1/2 md:relative top-10 right-16 md:rounded-lg shadow-sm md:bg-secondary md:p-8 md:ring-1 md:ring-slate-900/5"
       >
         <h1 class="font-semibold text-3xl text-neutral-content">
           Quiénes somos
@@ -30,22 +30,20 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </section>
 
-    <section class="container pb-12">
-      <h2 class="text-neutral-content text-center mt-12 font-semibold text-3xl">
+    <section class="max-w-5xl mx-auto pb-12 px-6">
+      <h2 class="text-neutral-content text-center mt-16 font-semibold text-3xl">
         Ubicación y horario
       </h2>
       <div class="flex flex-col md:flex-row gap-6 justify-center mt-6 mx-auto">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14934.553337310155!2d-105.2205893!3d20.6435935!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfc83124a922e42fa!2sKeto%20Bakery%20%26%20Coffee!5e0!3m2!1ses-419!2smx!4v1667507221181!5m2!1ses-419!2smx"
-          width="600"
-          class="rounded-lg ring-1 ring-slate-900/5 mx-auto"
-          height="450"
+          class="rounded-lg ring-1 ring-slate-900/5 mx-auto md:mx-0 w-full h-96 md:h-auto"
           style="border:0;"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div
-          class="overflow-x-auto rounded-lg ring-1 ring-slate-900/5 w-72"
+          class="rounded-lg ring-1 ring-slate-900/5 w-72 mx-auto md:mx-0 md:w-auto"
         >
           <table class="table w-full">
             <!-- head -->
@@ -83,6 +81,14 @@ import Layout from "../layouts/Layout.astro";
               <!-- row 3 -->
               <tr>
                 <th>Jueves</th>
+                <td>
+                  <span class="block">08:00 - 14:00</span>
+                  <span class="block">15:00 - 21:00</span>
+                </td>
+              </tr>
+              <!-- row 3 -->
+              <tr>
+                <th>Viernes</th>
                 <td>
                   <span class="block">08:00 - 14:00</span>
                   <span class="block">15:00 - 21:00</span>

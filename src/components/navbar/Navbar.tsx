@@ -1,15 +1,26 @@
+import { useEffect, useRef, useState } from "react";
 import routes from "./routes";
 
 export const Navbar = () => {
+  const [isScrolling, setIsScrolling] = useState(false);
+  console.log(isScrolling)
+
+  useEffect(() => {
+    setInterval(() => {
+      const isScrolling = window.scrollY > 0;
+      setIsScrolling(isScrolling);
+    }, 200);
+  }, []);
+
   return (
-    <nav className="relative z-40">
-      <div className="container navbar flex justify-between">
+    <nav className={`sticky top-0 transition duration-300 ease-in-out z-40 ${isScrolling && "bg-base-100 md:ring-1 md:ring-slate-900/5"}`}>
+      <div className="container navbar flex justify-between py-1">
         <div className="grid w-full grid-cols-3 sm:block sm:w-auto">
           {/* <div></div> */}
           <DropDown />
           <a href="/">
             <img
-              className="mx-auto w-16 py-2 sm:w-16"
+              className={`mx-auto w-12 py-2 sm:w-16`}
               src="/loguito.png"
               alt="Img"
             />
@@ -32,7 +43,7 @@ const Links = ({ icons = false }: LinksProps) => {
       {routes.map((route) => (
         <li
           key={route.href}
-          className="md:text-md flex text-neutral-content sm:block md:text-lg"
+          className="md:text-md flex text-neutral-content sm:block md:text-md"
         >
           <a href={route.href}>
             {icons && <route.icon size={28} color={"#172b4d"} />}
