@@ -3,19 +3,103 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Sobre nosotros">
-  <main class="container py-8">
-    <section class="w-full max-w-2xl">
-      <h1 class="font-bold text-3xl text-neutral-content">Quiénes somos</h1>
-      <p class="pt-3">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-        perspiciatis quibusdam ipsa molestias vel? Et velit dicta adipisci
-        itaque amet minima, temporibus, alias voluptate laboriosam porro
-        accusamus veniam quibusdam corporis quaerat deleniti magni sequi quae
-        quis ex pariatur sunt maiores! Consequuntur, molestiae quam ipsa ab
-        dolor non, quae in facilis rem similique voluptatem blanditiis nulla
-        repudiandae quod voluptatum itaque, reiciendis error voluptatibus optio
-        amet dolores earum enim. Est, voluptatibus aliquam!
-      </p>
+  <main class="">
+    <section
+      class="max-w-md md:max-w-5xl py-8 flex flex-col gap-5 md:flex-row mx-auto px-4"
+    >
+      <div class="md:w-1/2 md:ml-16">
+        <img class="w-full" src="/assets/test.jpg" alt="" />
+      </div>
+
+      <div
+        class="md:w-1/2 md:relative top-10 right-16 md:rounded-lg md:bg-base-100 md:p-8 md:ring-1 md:ring-slate-900/5"
+      >
+        <h1 class="font-semibold text-3xl text-neutral-content">
+          Quiénes somos
+        </h1>
+        <p class="pt-3">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+          perspiciatis quibusdam ipsa molestias vel? Et velit dicta adipisci
+          itaque amet minima, temporibus, alias voluptate laboriosam porro
+          accusamus veniam quibusdam corporis quaerat deleniti magni sequi quae
+          quis ex pariatur sunt maiores! Consequuntur, molestiae quam ipsa ab
+          dolor non, quae in facilis rem similique voluptatem blanditiis nulla
+          repudiandae quod voluptatum itaque, reiciendis error voluptatibus
+          optio amet dolores earum enim. Est, voluptatibus aliquam!
+        </p>
+      </div>
+    </section>
+
+    <section class="container pb-12">
+      <h2 class="text-neutral-content text-center mt-12 font-semibold text-3xl">
+        Ubicación y horario
+      </h2>
+      <div class="flex flex-col md:flex-row gap-6 justify-center mt-6 mx-auto">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14934.553337310155!2d-105.2205893!3d20.6435935!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfc83124a922e42fa!2sKeto%20Bakery%20%26%20Coffee!5e0!3m2!1ses-419!2smx!4v1667507221181!5m2!1ses-419!2smx"
+          width="600"
+          class="rounded-lg ring-1 ring-slate-900/5 mx-auto"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div
+          class="overflow-x-auto rounded-lg ring-1 ring-slate-900/5 w-72"
+        >
+          <table class="table w-full">
+            <!-- head -->
+            <thead>
+              <tr>
+                <th class="bg-base-100"></th>
+                <th class="bg-base-100">Hora</th>
+              </tr>
+            </thead>
+            <tbody class="overflow-hidden">
+              <!-- row 1 -->
+              <tr>
+                <th>Lunes</th>
+                <td>
+                  <span class="block">08:00 - 14:00</span>
+                  <span class="block">15:00 - 21:00</span>
+                </td>
+              </tr>
+              <!-- row 2 -->
+              <tr>
+                <th>Martes</th>
+                <td>
+                  <span class="block">08:00 - 14:00</span>
+                  <span class="block">15:00 - 21:00</span>
+                </td>
+              </tr>
+              <!-- row 3 -->
+              <tr>
+                <th>Miércoles</th>
+                <td>
+                  <span class="block">08:00 - 14:00</span>
+                  <span class="block">15:00 - 21:00</span>
+                </td>
+              </tr>
+              <!-- row 3 -->
+              <tr>
+                <th>Jueves</th>
+                <td>
+                  <span class="block">08:00 - 14:00</span>
+                  <span class="block">15:00 - 21:00</span>
+                </td>
+              </tr>
+              <!-- row 3 -->
+              <tr>
+                <th>Viernes</th>
+                <td>
+                  <span class="block">08:00 - 14:00</span>
+                  <span class="block">15:00 - 21:00</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </section>
   </main>
 </Layout>

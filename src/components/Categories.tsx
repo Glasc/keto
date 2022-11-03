@@ -46,7 +46,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
   return (
     <section className="pb-10">
       <div className="container relative">
-        <section className="sticky top-0 z-10 my-6 hidden justify-center bg-base-100 py-4 font-medium md:flex">
+        <section className="sticky top-0 z-10 my-6 hidden justify-center bg-base-200 py-4 font-medium md:flex">
           <ul className="menu rounded-box menu-horizontal mx-auto bg-base-100">
             <li
               className={`bg-base-300 ${
@@ -54,7 +54,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
               } text-primary-content`}
             >
               <button onClick={() => handleCategoryClick(null)}>
-                <a >Todos</a>
+                <a>Todos</a>
               </button>
             </li>
             {categories?.map((category) => {
@@ -67,7 +67,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
                   key={category._id}
                 >
                   <button onClick={() => handleCategoryClick(category._id)}>
-                    <a >{category.title}</a>
+                    <a>{category.title}</a>
                   </button>
                 </li>
               );
@@ -75,8 +75,8 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
           </ul>
         </section>
 
-        <section className="sticky top-0 z-10 my-6 flex justify-center bg-base-100 py-4 font-medium md:hidden">
-          <ul className="menu menu-horizontal mx-auto bg-base-100">
+        <section className="sticky top-0 z-10 my-6 flex justify-center py-4 font-medium md:hidden">
+          <ul className="menu menu-horizontal mx-auto">
             <li></li>
             <li
               tabIndex={0}
@@ -97,7 +97,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
                     className="w-full"
                     onClick={() => handleCategoryClick(null)}
                   >
-                    <a >Todos</a>
+                    <a>Todos</a>
                   </button>
                 </li>
                 {categories?.map((category) => {
@@ -109,7 +109,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
                       } m-0 p-0 text-primary-content`}
                       key={category._id}
                     >
-                      <a className="" >
+                      <a className="">
                         <button
                           className="w-full text-left"
                           onClick={() => handleCategoryClick(category._id)}
@@ -134,7 +134,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
               return (
                 <div
                   key={product._id}
-                  className="card w-64 border border-gray-200 bg-base-100 shadow-sm md:w-80"
+                  className="card w-64 ring-1 ring-slate-900/5 bg-base-100 shadow-sm md:w-80"
                 >
                   <figure className="border-none">
                     <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
@@ -143,7 +143,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
                     <h2 className="card-title text-xl text-neutral-content">
                       {product.title}
                     </h2>
-                    <p>{product.description}</p>
+                    <p className="text-sm">{product.description}</p>
                   </div>
                 </div>
               );
