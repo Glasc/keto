@@ -44,39 +44,10 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
   }
 
   return (
-    <section className="pb-10">
-      <div className="container relative">
-        <section className="sticky top-0 z-50 my-6 hidden justify-center bg-base-200 py-4 font-medium md:flex">
-          <ul className="menu rounded-box menu-horizontal mx-auto bg-base-100">
-            <li
-              className={`bg-base-300 ${
-                !selectedCategory && "bg-primary"
-              } text-primary-content`}
-            >
-              <button onClick={() => handleCategoryClick(null)}>
-                <a>Todos</a>
-              </button>
-            </li>
-            {categories?.map((category) => {
-              let isSelected = category._id === selectedCategory;
-              return (
-                <li
-                  className={`bg-base-300 ${
-                    isSelected && "bg-primary"
-                  } text-primary-content`}
-                  key={category._id}
-                >
-                  <button onClick={() => handleCategoryClick(category._id)}>
-                    <a>{category.title}</a>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-
+    <section className="mt-10 pb-10">
+      <div className="container relative md:flex md:flex-row md:items-start md:gap-2">
         {/* mobile */}
-        <section className="z-60 sticky top-0 my-6 flex justify-center py-4 font-medium md:hidden">
+        <section className="z-50 bg-base-200 sticky top-0 my-6 flex justify-center py-4 font-medium md:hidden">
           <ul className="menu menu-horizontal mx-auto">
             <li></li>
             <li
@@ -127,7 +98,46 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
           </ul>
         </section>
 
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+        <section className="sticky top-[1em] z-50 hidden w-auto justify-center font-medium md:flex">
+          <ul className="menu rounded-box mx-auto bg-base-100">
+            <li
+              className={`bg-base-300 ${
+                !selectedCategory && "bg-primary"
+              } text-primary-content`}
+            >
+              {/* <a className="no-underline" href="#"> */}
+              <button
+                className="mx-auto w-full justify-center"
+                onClick={() => handleCategoryClick(null)}
+              >
+                Todos
+              </button>
+              {/* </a> */}
+            </li>
+            {categories?.map((category) => {
+              let isSelected = category._id === selectedCategory;
+              return (
+                <li
+                  className={`bg-base-300 ${
+                    isSelected && "bg-primary"
+                  } text-primary-content`}
+                  key={category._id}
+                >
+                  {/* <a href="#"> */}
+                  <button
+                    className="mx-auto w-full justify-center"
+                    onClick={() => handleCategoryClick(category._id)}
+                  >
+                    {category.title}
+                  </button>
+                  {/* </a> */}
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+
+        <div className="flex w-full flex-wrap items-center justify-center gap-4 md:gap-8 ">
           {categoriesToShow?.map((category) => {
             const categoryProducts = category.products;
 

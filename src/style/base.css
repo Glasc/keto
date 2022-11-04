@@ -46,10 +46,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 @font-face {
   font-family: "Poppins";
   src: url("/fonts/Poppins-Regular.ttf");
