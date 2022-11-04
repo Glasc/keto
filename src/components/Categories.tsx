@@ -45,9 +45,9 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
 
   return (
     <section className="mt-10 pb-10">
-      <div className="container relative md:flex md:flex-row md:items-start md:gap-2">
+      <div className="container relative md:flex md:flex-row md:items-start md:gap-8">
         {/* mobile */}
-        <section className="z-50 bg-base-200 sticky top-0 my-6 flex justify-center py-4 font-medium md:hidden">
+        <section className="sticky top-0 z-50 my-6 flex justify-center bg-base-200 py-4 font-medium md:hidden">
           <ul className="menu menu-horizontal mx-auto">
             <li></li>
             <li
@@ -98,10 +98,10 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
           </ul>
         </section>
 
-        <section className="sticky top-[1em] z-50 hidden w-auto justify-center font-medium md:flex">
-          <ul className="menu rounded-box mx-auto bg-base-100">
+        <section className="sticky top-[1em] z-50 hidden w-auto justify-center bg-base-100 font-medium md:flex mr-4">
+          <ul className="menu mx-auto rounded-md bg-base-100 shadow-sm ring-1 ring-slate-900/5">
             <li
-              className={`bg-base-300 ${
+              className={`bg-base-100 ${
                 !selectedCategory && "bg-primary"
               } text-primary-content`}
             >
@@ -118,7 +118,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
               let isSelected = category._id === selectedCategory;
               return (
                 <li
-                  className={`bg-base-300 ${
+                  className={`bg-base-100 ${
                     isSelected && "bg-primary"
                   } text-primary-content`}
                   key={category._id}
@@ -137,7 +137,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
           </ul>
         </section>
 
-        <div className="flex w-full flex-wrap items-center justify-center gap-4 md:gap-8 ">
+        <div className="flex w-full flex-wrap items-center justify-start gap-4 md:gap-6 ">
           {categoriesToShow?.map((category) => {
             const categoryProducts = category.products;
 
@@ -145,10 +145,10 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
               return (
                 <div
                   key={product._id}
-                  className="card w-64 bg-base-100 shadow-sm ring-1 ring-slate-900/5 md:w-80"
+                  className="card w-56 rounded-md bg-base-100 shadow ring-1 ring-slate-900/5 md:w-72"
                 >
                   <figure className="border-none">
-                    <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+                    <img className="select-none" src="https://placeimg.com/400/225/arch" alt="Shoes" />
                   </figure>
                   <div className="card-body">
                     <h2 className="card-title text-xl text-neutral-content">
