@@ -3,7 +3,6 @@ import routes from "./routes";
 
 export const Navbar = () => {
   const [isScrolling, setIsScrolling] = useState(false);
-  console.log(isScrolling)
 
   useEffect(() => {
     setInterval(() => {
