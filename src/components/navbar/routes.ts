@@ -17,7 +17,7 @@ const routes = [
     icon: RiInformationLine,
   },
   {
-    href: "/blog",
+    href: "/blog/1",
     title: "Blog",
     icon: RiFilePaper2Line,
   },

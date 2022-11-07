@@ -20,6 +20,11 @@ export type Product = {
   priceLarge: number;
   title: string;
   description: string;
+  image: {
+    asset: {
+      _ref: string;
+    }
+  }
 };
 
 export const Categories = ({ categories }: { categories: Category[] }) => {
@@ -52,7 +57,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
             <li></li>
             <li
               tabIndex={0}
-              className="rounded-full bg-primary text-primary-content"
+              className="rounded-full bg-secondary text-primary-content"
             >
               <div>
                 <RiArrowDownSLine size={20} />
@@ -62,7 +67,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
               <ul className="rounded-box bg-base-100 p-2">
                 <li
                   className={`${
-                    !selectedCategory && "bg-primary"
+                    !selectedCategory && "bg-secondary"
                   } text-primary-content`}
                 >
                   <button
@@ -77,7 +82,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
                   return (
                     <li
                       className={`${
-                        isSelected && "bg-primary"
+                        isSelected && "bg-secondary"
                       } m-0 p-0 text-primary-content`}
                       key={category._id}
                     >
@@ -98,11 +103,11 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
           </ul>
         </section>
 
-        <section className="sticky top-[1em] z-50 mr-4 hidden w-auto justify-center bg-base-100 font-medium md:flex">
+        <section className="sticky top-[1em] z-50 mr-4 hidden w-auto shadow-md justify-center bg-base-100 font-medium md:flex">
           <ul className="menu mx-auto rounded-md bg-base-100 shadow-sm ring-1 ring-slate-900/5">
             <li
               className={`${
-                !selectedCategory ? "bg-primary" : "bg-base-100"
+                !selectedCategory ? "bg-secondary" : "bg-base-100"
               } text-primary-content`}
             >
               {/* <a className="no-underline" href="#"> */}
@@ -119,7 +124,7 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
               return (
                 <li
                   className={`${
-                    isSelected ? "bg-primary" : "bg-base-100"
+                    isSelected ? "bg-secondary" : "bg-base-100"
                   } text-primary-content`}
                   key={category._id}
                 >
@@ -146,11 +151,11 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
               return (
                 <div
                   key={product._id}
-                  className="card-compact card w-full rounded-md bg-base-100 shadow ring-1 ring-slate-900/5 "
+                  className="card-compact card w-full rounded-md bg-base-100 shadow-md ring-1 ring-slate-900/5 "
                 >
                   <figure className="border-none">
                     <img
-                      className="select-none"
+                      className="select-none w-full"
                       src="https://placeimg.com/400/225/arch"
                       alt="Shoes"
                     />
