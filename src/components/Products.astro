@@ -1,13 +1,13 @@
 ---
+import { getImage } from "@astrojs/image";
 import { useSanityClient } from "astro-sanity";
-import type { Category } from "../pages/products/[category].astro";
-import { Categories } from "./Categories";
+import { Categories, Category, Product } from "./Categories";
 
 export async function getCategories(): Promise<Category[]> {
   try {
     const query = `*[_type == "category"]{
   _id, 
-  products[]->{_id, _type, price, priceSmall, priceMedium, priceLarge, description, title}, 
+  products[]->{_id, _type, price, priceSmall, priceMedium, "image":image.asset->url, priceLarge, description, title}, 
   title, 
   slug
 }`;
@@ -20,6 +20,18 @@ export async function getCategories(): Promise<Category[]> {
     return [];
   }
 }
+
+const transformProductImage = async (product: Product) => {
+  const { src } = await getImage({
+    src:
+      product?.image ||
+      "https://cdn.sanity.io/images/45fs2a0y/production/2bc3880b5687cecac4d1090205bc49d0b2d09b6b-194x204.jpg",
+    format: "webp",
+    width: 400,
+    height: 300,
+  });
+  return { ...product, image: src };
+};
 
 const categories = await getCategories();
 ---

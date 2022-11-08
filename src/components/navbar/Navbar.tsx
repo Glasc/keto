@@ -12,7 +12,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`transition duration-300 ease-in-out z-40 ${isScrolling && "bg-base-100 md:ring-1 md:ring-slate-900/5"}`}>
+    <nav className={`transition duration-300 ease-in-out z-40 ${isScrolling && "md:ring-1 md:ring-slate-900/5"}`}>
       <div className="container navbar flex justify-between py-1">
         <div className="grid w-full grid-cols-3 sm:block sm:w-auto">
           {/* <div></div> */}
