@@ -151,18 +151,13 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
                   className="card-compact card w-full rounded-md bg-base-100 shadow-md ring-1 ring-slate-900/5 "
                 >
                   <figure className="border-none">
-                    {product.image && <img
-                      className="w-full select-none"
-                      src={`${product?.image}?w=400`}
-                      alt="Shoes"
-                    />}
-                    {/* <Image
-                      format="webp"
-                      width={50}
-                      height={50}
-                      alt="webos"
-                      src="h"
-                    /> */}
+                    {product.image && (
+                      <img
+                        className="w-full select-none"
+                        src={`${product?.image}?w=400&fm=webp`}
+                        alt={product?.description}
+                      />
+                    )}
                   </figure>
                   <div className="card-body">
                     <h2 className="card-title text-xl text-neutral-content">

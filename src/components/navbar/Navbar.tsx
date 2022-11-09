@@ -20,7 +20,7 @@ export const Navbar = () => {
           <a href="/">
             <img
               className={`mx-auto w-12 py-2 sm:w-16`}
-              src="/loguito.png"
+              src="/ketologo.webp"
               alt="Img"
             />
           </a>
