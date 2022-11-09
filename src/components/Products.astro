@@ -21,19 +21,48 @@ export async function getCategories(): Promise<Category[]> {
   }
 }
 
-const transformProductImage = async (product: Product) => {
-  const { src } = await getImage({
-    src:
-      product?.image ||
+const transformProductImage = async (product: Product): Promise<Product> => {
+  return {
+    ...product,
+    image:
       "https://cdn.sanity.io/images/45fs2a0y/production/2bc3880b5687cecac4d1090205bc49d0b2d09b6b-194x204.jpg",
-    format: "webp",
+  };
+};
+
+const transformUrl = async (url: string): Promise<string> => {
+  const { src } = await getImage({
+    src: url,
     width: 400,
     height: 300,
   });
-  return { ...product, image: src };
+
+  return src || "xd";
 };
 
-const categories = await getCategories();
+let categories = await getCategories();
+
+let listOfImages = categories
+  .map((category) => category.products)
+  .flat()
+  .map((product) => product?.image);
+
+const transformedImages = await Promise.all(
+  listOfImages.map((url) =>
+    transformUrl(
+      url ||
+        "https://cdn.sanity.io/images/45fs2a0y/production/2bc3880b5687cecac4d1090205bc49d0b2d09b6b-194x204.jpg"
+    )
+  )
+);
+
+// replace categories images with transformedImages
+categories.forEach((category) => {
+  category?.products?.forEach((product, index) => {
+    product.image = transformedImages[index];
+  });
+});
+
 ---
 
 <Categories categories={categories} client:load />
+<!-- <img src={src} alt="xd" /> -->
