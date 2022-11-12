@@ -1,6 +1,5 @@
 import { RiArrowDownSLine } from "react-icons/ri/index.js";
 import React, { useState } from "react";
-import { Image, Picture } from "@astrojs/image/components";
 
 export type Category = {
   _id: string;
@@ -24,7 +23,7 @@ export type Product = {
   image: string | null;
 };
 
-export const Categories = ({ categories }: { categories: Category[] }) => {
+const useCategories = (categories: Category[]) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const categoriesWithFilter = categories.filter(
@@ -40,6 +39,26 @@ export const Categories = ({ categories }: { categories: Category[] }) => {
   const handleCategoryClick = (_id: Category["_id"] | null) => {
     setSelectedCategory(_id);
   };
+
+  return {
+    categoriesToShow,
+    currentCategoryName,
+    selectedCategory,
+    handleCategoryClick,
+  };
+};
+
+interface CategoriesProps {
+  categories: Category[];
+}
+
+export const Categories = ({ categories }: CategoriesProps) => {
+  const {
+    categoriesToShow,
+    currentCategoryName,
+    selectedCategory,
+    handleCategoryClick,
+  } = useCategories(categories);
 
   if (!categories) {
     return <p>Cargando...</p>;

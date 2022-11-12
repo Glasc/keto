@@ -9,6 +9,7 @@ export type Post = {
   publishedAt: string;
   text: any;
   title: string;
+  imageUrl: string;
 };
 
 interface Page<T = any> {
@@ -39,11 +40,12 @@ interface Page<T = any> {
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   try {
-    const query = `*[_type == "post"]{
+    const query = `*[_type == "post"] {
       _id,
       publishedAt,
       text,
       title,
+      "imageUrl":image.asset->url
       }`;
     const listOfPosts: Post[] = await useSanityClient().fetch(query);
 
@@ -76,9 +78,9 @@ const page: Page<Post> = props?.page || [];
             <a class="block hover:no-underline" href={`/blog/${post._id}`}>
               <article class="bg-base-100 hover:ring-secondary grid max-w-sm cursor-pointer grid-cols-1 items-start space-x-3 rounded-md shadow-sm ring-1 ring-slate-900/5 transition duration-300 ease-in-out hover:shadow-lg hover:ring-2 md:max-w-full md:grid-cols-[30%_1fr]">
                 <img
-                  class="w-ful self-center rounded-md"
-                  src="/assets/products.jpg"
-                  alt=""
+                  class="w-full self-center rounded-md"
+                  src={`${post?.imageUrl}?w=400&fm=webp`}
+                  alt="Post image"
                 />
                 <section class="p-4">
                   <div class="flex items-center justify-between">
