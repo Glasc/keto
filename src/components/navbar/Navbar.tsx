@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import { SiFacebook, SiUbereats, SiInstagram } from "react-icons/si/";
 import routes from "./routes";
 
-export const Navbar = () => {
+type NavbarProps = {
+  facebookUrl?: string;
+  instagramUrl?: string;
+  uberEatsUrl?: string;
+}
+
+export const Navbar = ({ facebookUrl, instagramUrl, uberEatsUrl }: NavbarProps) => {
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
@@ -22,7 +28,7 @@ export const Navbar = () => {
         <div className="grid w-full grid-cols-3 sm:block sm:w-auto">
           {/* <div></div> */}
           <DropDown />
-          <div className="flex gap-4 items-center">
+          <div className="flex items-center gap-4">
             <img
               className={`mx-auto w-12 py-2 sm:w-16`}
               src="/ketologo.webp"
@@ -32,7 +38,8 @@ export const Navbar = () => {
               <li>
                 <a
                   className="cursor-pointer"
-                  href="https://www.ubereats.com/mx/store/keto-bakery-%26-coffee/TkQuBhmqXfeWlBszmLDVnA?utm_campaign=place-action-link&utm_medium=organic&utm_source=google"
+                  target="_blank"
+                  href={facebookUrl}
                 >
                   <SiFacebook size={15} color="#1871E7" />
                 </a>
@@ -40,7 +47,8 @@ export const Navbar = () => {
               <li>
                 <a
                   className="cursor-pointer"
-                  href="https://www.ubereats.com/mx/store/keto-bakery-%26-coffee/TkQuBhmqXfeWlBszmLDVnA?utm_campaign=place-action-link&utm_medium=organic&utm_source=google"
+                  target="_blank"
+                  href={uberEatsUrl}
                 >
                   <SiUbereats size={15} color="#06C167" />
                 </a>
@@ -48,7 +56,8 @@ export const Navbar = () => {
               <li>
                 <a
                   className="cursor-pointer"
-                  href="https://www.ubereats.com/mx/store/keto-bakery-%26-coffee/TkQuBhmqXfeWlBszmLDVnA?utm_campaign=place-action-link&utm_medium=organic&utm_source=google"
+                  target="_blank"
+                  href={instagramUrl}
                 >
                   <SiInstagram size={15} color="#AF36A7" />
                 </a>

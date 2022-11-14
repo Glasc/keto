@@ -1,5 +1,11 @@
 ---
 import { SiFacebook, SiUbereats, SiInstagram } from "react-icons/si/index.js";
+import type { Links } from "../layouts/Layout.astro";
+
+type Props = Links
+
+const { facebookUrl, instagramUrl, uberEatsUrl } = Astro.props;
+
 ---
 
 <footer class="bg-base-300 py-5 sm:p-10">
@@ -12,9 +18,9 @@ import { SiFacebook, SiUbereats, SiInstagram } from "react-icons/si/index.js";
     </div>
     <div>
       <div class="flex space-x-6">
-        <a class="cursor-pointer "><SiFacebook size={30} color="#1871E7"/></a>
-        <a class="cursor-pointer "><SiUbereats size={30} color="#06C167"/></a>
-        <a class="cursor-pointer "><SiInstagram size={30} color="#AF36A7"/></a>
+        <a class="cursor-pointer" target="_blank" href={facebookUrl}><SiFacebook size={30} color="#1871E7" /></a>
+        <a class="cursor-pointer" target="_blank" href={uberEatsUrl}><SiUbereats size={30} color="#06C167" /></a>
+        <a class="cursor-pointer" target="_blank" href={instagramUrl}><SiInstagram size={30} color="#AF36A7" /></a>
       </div>
     </div>
     <div>
