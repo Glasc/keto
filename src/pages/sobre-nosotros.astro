@@ -1,6 +1,44 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "@astrojs/image/components";
+import { useSanityClient } from "astro-sanity";
+
+type Schedule = {
+  lunes: string[];
+  martes: string[];
+  miercoles: string[];
+  jueves: string[];
+  viernes: string[];
+  sabado: string[];
+  domingo: string[];
+};
+
+export async function getSchedule(): Promise<Schedule> {
+  const query = `*[_type == "schedule"] {
+  lunes,
+  martes,
+  miercoles,
+  jueves,
+  viernes,
+  sabado,
+  domingo
+}[0]`;
+  const schedule = await useSanityClient().fetch(query);
+
+  const scheduleOrdered = {
+    lunes: schedule.lunes,
+    martes: schedule.martes,
+    miercoles: schedule.miercoles,
+    jueves: schedule.jueves,
+    viernes: schedule.viernes,
+    sabado: schedule.sabado,
+    domingo: schedule.domingo,
+  };
+
+  return scheduleOrdered
+}
+
+const schedule = await getSchedule();
 ---
 
 <Layout title="Sobre nosotros">
@@ -62,54 +100,32 @@ import { Image } from "@astrojs/image/components";
               </tr>
             </thead>
             <tbody class="overflow-hidden">
-              <!-- row 1 -->
-              <tr>
+              <!-- map over schedule to achieve this structure in every element:
+                 <tr>
                 <th>Lunes</th>
                 <td>
                   <span class="block">08:00 - 14:00</span>
                   <span class="block">15:00 - 21:00</span>
                 </td>
-              </tr>
-              <!-- row 2 -->
-              <tr>
-                <th>Martes</th>
-                <td>
-                  <span class="block">08:00 - 14:00</span>
-                  <span class="block">15:00 - 21:00</span>
-                </td>
-              </tr>
+              </tr> -->
+              {
+                Object.entries(schedule).map(([day, hours]) => {
+                  // dont render if there are no hours
+                  if (hours?.every((hour) => !hour)) return null;
+                  return (
+                    <tr>
+                      <th>{day}</th>
+                      <td>
+                        {hours.map((hour) => {
+                          if (!hour) return null;
+                          return <span class="block">{hour}</span>;
+                        })}
+                      </td>
+                    </tr>
+                  );
+                })
+              }
               <!-- row 3 -->
-              <tr>
-                <th>Miércoles</th>
-                <td>
-                  <span class="block">08:00 - 14:00</span>
-                  <span class="block">15:00 - 21:00</span>
-                </td>
-              </tr>
-              <!-- row 3 -->
-              <tr>
-                <th>Jueves</th>
-                <td>
-                  <span class="block">08:00 - 14:00</span>
-                  <span class="block">15:00 - 21:00</span>
-                </td>
-              </tr>
-              <!-- row 3 -->
-              <tr>
-                <th>Viernes</th>
-                <td>
-                  <span class="block">08:00 - 14:00</span>
-                  <span class="block">15:00 - 21:00</span>
-                </td>
-              </tr>
-              <!-- row 3 -->
-              <tr>
-                <th>Viernes</th>
-                <td>
-                  <span class="block">08:00 - 14:00</span>
-                  <span class="block">15:00 - 21:00</span>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>

@@ -1,18 +1,14 @@
 ---
-import { Navbar } from "../components/navbar/Navbar";
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import AboutProducts from "../components/AboutProducts.astro";
-import Products from "../components/Products.astro";
-import Footer from "../components/Footer.astro";
-import Wave from "../components/Wave.astro";
-import WaveVariant from "../components/WaveVariant.astro";
-// REMEMBER TO CHECK WAVE TOP RIGHT CIRCULAR
+import Products from "../features/products/Products.astro";
+import AboutProducts from "../features/products/AboutProducts.astro";
+import WaveVariant from "../features/WaveVariant.astro";
+import HeroSection from "../features/HeroSection.astro";
 ---
 
 <Layout title="Ketobakery">
   <div class="wrapper w-full bg-base-200 text-base-content">
-    <Hero />
+    <HeroSection />
     <AboutProducts />
     <section class="container text-center pt-12">
       <h3 class="text-3xl font-medium text-neutral-content" id="categories">
@@ -21,7 +17,7 @@ import WaveVariant from "../components/WaveVariant.astro";
       <p class="divider">Recoja sus productos en tienda</p>
     </section>
     <Products />
-
+    
     <WaveVariant />
   </div>
-</Layout>
+</Layout> 
