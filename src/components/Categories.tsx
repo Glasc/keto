@@ -119,20 +119,20 @@ export const Categories = ({ categories }: CategoriesProps) => {
           </ul>
         </section>
 
-        <section className="sticky top-[1em] z-50 mr-4 hidden w-auto justify-center bg-base-100 font-medium shadow-md md:flex">
-          <ul className="menu mx-auto rounded-md bg-base-100 shadow-sm ring-1 ring-slate-900/5">
+        <section className="sticky top-[1em] z-50 mr-4 hidden w-auto justify-center bg-base-100 font-medium shadow md:flex">
+          <ul className="menu mx-auto rounded-md overflow-hidden bg-base-100 shadow-sm ring-1 ring-slate-900/5 ">
             <li
               className={`${
                 !selectedCategory ? "bg-secondary" : "bg-base-100"
               } text-primary-content`}
             >
               {/* <a className="no-underline" href="#"> */}
-              <button
-                className="mx-auto w-full justify-center"
+              <a
+                className="mx-auto w-full justify-center rounded-none hover:bg-secondary/40"
                 onClick={() => handleCategoryClick(null)}
               >
                 Todos
-              </button>
+              </a>
               {/* </a> */}
             </li>
             {categories?.map((category) => {
@@ -145,12 +145,12 @@ export const Categories = ({ categories }: CategoriesProps) => {
                   key={category._id}
                 >
                   {/* <a href="#"> */}
-                  <button
-                    className="mx-auto w-full justify-center"
+                  <a
+                    className="btn bg-transparent mx-auto w-full justify-center rounded-none hover:bg-secondary/40"
                     onClick={() => handleCategoryClick(category._id)}
                   >
                     {category.title}
-                  </button>
+                  </a>
                   {/* </a> */}
                 </li>
               );

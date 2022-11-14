@@ -68,54 +68,54 @@ const page: Page<Post> = props?.page || [];
 ---
 
 <Layout title={`Blog - Página ${page.currentPage}`}>
-  <main class="max-w-[60rem] mx-auto px-6 pt-6 pb-10 flex flex-col">
-    <h1 class="font-bold text-4xl text-center text-neutral-content">Blog</h1>
+    <main class="max-w-[60rem] mx-auto px-6 pt-6 pb-10 flex flex-col">
+      <h1 class="font-bold text-4xl text-center text-neutral-content">Blog</h1>
 
-    <section class="space-y-6 py-8 block mx-auto">
-      {
-        page.data?.map((post: Post) => {
-          return (
-            <a class="block hover:no-underline" href={`/blog/${post._id}`}>
-              <article class="bg-base-100 hover:ring-secondary grid max-w-sm cursor-pointer grid-cols-1 items-start space-x-3 rounded-md shadow-sm ring-1 ring-slate-900/5 transition duration-300 ease-in-out hover:shadow-lg hover:ring-2 md:max-w-full md:grid-cols-[30%_1fr]">
-                <img
-                  class="w-full self-center rounded-md"
-                  src={`${post?.imageUrl}?w=400&fm=webp`}
-                  alt="Post image"
-                />
-                <section class="p-4">
-                  <div class="flex items-center justify-between">
-                    <h2 class="text-neutral-content/90 mt-2 mb-1 text-xl font-semibold">
-                      {post.title}
-                    </h2>
-                    <p class="text-base-content ml-2">{post.publishedAt}</p>
-                  </div>
-                  <div class="xd mt-3 ">
-                    {toPlainTextAndSummarized(post.text, 25)}
-                  </div>
-                </section>
-              </article>
-            </a>
-          );
-        })
-      }
-    </section>
+      <section class="space-y-5 py-8 block mx-auto flex-1">
+        {
+          page.data?.map((post: Post) => {
+            return (
+              <a class="block hover:no-underline" href={`/blog/${post._id}`}>
+                <article class="bg-base-100 hover:ring-secondary grid max-w-sm cursor-pointer grid-cols-1 items-start space-x-3 rounded-md shadow-sm ring-1 ring-slate-900/5 transition duration-300 ease-in-out hover:shadow-lg hover:ring-2 md:max-w-full md:grid-cols-[30%_1fr]">
+                  <img
+                    class="w-full self-center rounded-md"
+                    src={`${post?.imageUrl}?w=400&fm=webp`}
+                    alt="Post image"
+                  />
+                  <section class="p-4">
+                    <div class="flex items-center justify-between">
+                      <h2 class="text-neutral-content/90 mt-2 mb-1 text-xl font-semibold">
+                        {post.title}
+                      </h2>
+                      <p class="text-base-content ml-2">{post.publishedAt}</p>
+                    </div>
+                    <div class="xd mt-3 ">
+                      {toPlainTextAndSummarized(post.text, 25)}
+                    </div>
+                  </section>
+                </article>
+              </a>
+            );
+          })
+        }
+      </section>
 
-    <div class="flex justify-center">
-      <div class="btn-group">
-        <a href={page.url.prev}>
-          <button class="btn text-primary-content text-xl bg-secondary"
-            >«</button
+      <div class="flex justify-center">
+        <div class="btn-group">
+          <a href={page.url.prev}>
+            <button class="btn text-primary-content text-xl bg-secondary"
+              >«</button
+            >
+          </a>
+          <button class="btn text-primary-content bg-secondary"
+            >Página {page.currentPage}</button
           >
-        </a>
-        <button class="btn text-primary-content bg-secondary"
-          >Página {page.currentPage}</button
-        >
-        <a href={page.url.next}>
-          <button class="btn text-primary-content text-xl bg-secondary"
-            >»</button
-          >
-        </a>
+          <a href={page.url.next}>
+            <button class="btn text-primary-content text-xl bg-secondary"
+              >»</button
+            >
+          </a>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 </Layout>

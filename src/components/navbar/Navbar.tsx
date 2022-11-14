@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { SiFacebook, SiUbereats, SiInstagram } from "react-icons/si/";
 import routes from "./routes";
 
 export const Navbar = () => {
@@ -6,24 +7,54 @@ export const Navbar = () => {
 
   useEffect(() => {
     setInterval(() => {
-      const isScrolling = window.scrollY > 0;
+      const isScrolling = window?.scrollY > 0;
       setIsScrolling(isScrolling);
     }, 200);
   }, []);
 
   return (
-    <nav className={`transition duration-300 ease-in-out z-40 ${isScrolling && "md:ring-1 md:ring-slate-900/5"}`}>
+    <nav
+      className={`relative z-40 transition duration-300 ease-in-out ${
+        isScrolling && "md:ring-1 md:ring-slate-900/5"
+      }`}
+    >
       <div className="container navbar flex justify-between py-1">
         <div className="grid w-full grid-cols-3 sm:block sm:w-auto">
           {/* <div></div> */}
           <DropDown />
-          <a href="/">
+          <div className="flex gap-4 items-center">
             <img
               className={`mx-auto w-12 py-2 sm:w-16`}
               src="/ketologo.webp"
               alt="Img"
             />
-          </a>
+            <ul className="flex flex-col gap-2">
+              <li>
+                <a
+                  className="cursor-pointer"
+                  href="https://www.ubereats.com/mx/store/keto-bakery-%26-coffee/TkQuBhmqXfeWlBszmLDVnA?utm_campaign=place-action-link&utm_medium=organic&utm_source=google"
+                >
+                  <SiFacebook size={15} color="#1871E7" />
+                </a>
+              </li>
+              <li>
+                <a
+                  className="cursor-pointer"
+                  href="https://www.ubereats.com/mx/store/keto-bakery-%26-coffee/TkQuBhmqXfeWlBszmLDVnA?utm_campaign=place-action-link&utm_medium=organic&utm_source=google"
+                >
+                  <SiUbereats size={15} color="#06C167" />
+                </a>
+              </li>
+              <li>
+                <a
+                  className="cursor-pointer"
+                  href="https://www.ubereats.com/mx/store/keto-bakery-%26-coffee/TkQuBhmqXfeWlBszmLDVnA?utm_campaign=place-action-link&utm_medium=organic&utm_source=google"
+                >
+                  <SiInstagram size={15} color="#AF36A7" />
+                </a>
+              </li>
+            </ul>
+          </div>
           <div></div>
         </div>
         <FullNavbar />
@@ -42,7 +73,7 @@ const Links = ({ icons = false }: LinksProps) => {
       {routes.map((route) => (
         <li
           key={route.href}
-          className="md:text-md flex text-neutral-content sm:block md:text-md"
+          className="md:text-md md:text-md flex text-neutral-content sm:block"
         >
           <a href={route.href}>
             {icons && <route.icon size={28} color={"#172b4d"} />}
