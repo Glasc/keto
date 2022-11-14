@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SiFacebook, SiUbereats, SiInstagram } from "react-icons/si/";
+import { SiFacebook, SiUbereats, SiInstagram } from "react-icons/si/index.js";
 import routes from "./routes";
 
 type NavbarProps = {
