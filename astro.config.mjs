@@ -25,7 +25,7 @@ export default defineConfig({
       projectId: "45fs2a0y",
       dataset: "production",
       apiVersion: "2021-03-25",
-      useCdn: true,
+      useCdn: false,
     }),
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
