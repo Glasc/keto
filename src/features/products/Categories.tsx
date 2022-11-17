@@ -65,7 +65,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
   }
 
   return (
-    <section className="mt-10 pb-10 ">
+    <section className="pt-10 pb-10 ">
       <div className="relative mx-auto max-w-[85rem] px-6 md:flex md:flex-row md:items-start md:gap-8">
         {/* mobile */}
         <section className="sticky top-0 z-50 my-6 flex justify-center bg-base-200 py-4 font-medium md:hidden">
@@ -167,7 +167,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
               return (
                 <div
                   key={product._id}
-                  className="card-compact card w-full rounded-md bg-base-100 shadow-md ring-1 ring-slate-900/5 "
+                  className="card-compact card w-full rounded-md bg-base-100 shadow ring-1 ring-slate-900/5 "
                 >
                   <figure className="border-none">
                     {product.image && (
