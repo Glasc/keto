@@ -68,7 +68,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
     <section className="pt-10 pb-10">
       <div className="relative mx-auto max-w-[85rem] px-6 md:flex md:flex-row md:items-start md:gap-8">
         {/* mobile */}
-        <section className="sticky top-0 z-50 my-6 flex justify-center bg-base-200 py-4 font-medium md:hidden">
+        <section className="sticky top-2 z-50 flex justify-center pb-6 font-medium md:hidden">
           <ul className="menu menu-horizontal mx-auto">
             <li></li>
             <li
@@ -86,12 +86,12 @@ export const Categories = ({ categories }: CategoriesProps) => {
                     !selectedCategory && "bg-primary"
                   } text-primary-content`}
                 >
-                  <button
+                  <a href="#categories"><button
                     className="w-full"
                     onClick={() => handleCategoryClick(null)}
                   >
-                    <a>Todos</a>
-                  </button>
+                    Todos
+                  </button></a>
                 </li>
                 {categories?.map((category) => {
                   let isSelected = category._id === selectedCategory;
@@ -102,9 +102,9 @@ export const Categories = ({ categories }: CategoriesProps) => {
                       } m-0 p-0 text-primary-content`}
                       key={category._id}
                     >
-                      <a className="">
+                      <a href="#categories">
                         <button
-                          className="w-full text-left"
+                          className="w-full text-center"
                           onClick={() => handleCategoryClick(category._id)}
                         >
                           {category.title}

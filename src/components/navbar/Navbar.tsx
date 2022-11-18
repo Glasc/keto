@@ -32,15 +32,15 @@ export const Navbar = ({
         <div className="grid w-full grid-cols-3 sm:block sm:w-auto">
           {/* <div></div> */}
           <DropDown />
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-center gap-4">
             <a href="/">
               <img
-                className={`mx-auto w-12 py-2 sm:w-16`}
+                className={`mx-auto w-16 py-2 sm:w-20`}
                 src="/ketologo.webp"
                 alt="Img"
               />
             </a>
-            <ul className="flex flex-col gap-2">
+            <ul className="hidden sm:flex flex-col gap-2 ">
               {facebookUrl && (
                 <li>
                   <a
