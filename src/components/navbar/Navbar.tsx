@@ -47,6 +47,7 @@ export const Navbar = ({
                     className="cursor-pointer"
                     target="_blank"
                     href={facebookUrl}
+                    aria-label="Visita nuestra pagina de Facebook"
                   >
                     <SiFacebook size={15} color="#1871E7" />
                   </a>
@@ -58,6 +59,7 @@ export const Navbar = ({
                     className="cursor-pointer"
                     target="_blank"
                     href={uberEatsUrl}
+                    aria-label="Haz tu pedido en uber eats"
                   >
                     <SiUbereats size={15} color="#06C167" />
                   </a>
@@ -69,6 +71,7 @@ export const Navbar = ({
                     className="cursor-pointer"
                     target="_blank"
                     href={instagramUrl}
+                    aria-label="Visitra nuestra pagina de Instagram"
                   >
                     <SiInstagram size={15} color="#AF36A7" />
                   </a>

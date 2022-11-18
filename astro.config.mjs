@@ -3,9 +3,11 @@ import react from "@astrojs/react";
 import sanity from "astro-sanity";
 import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
+import robotsTxt from 'astro-robots-txt';
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://keto-six.vercel.app",
   integrations: [
     react(),
     tailwind(),
@@ -18,5 +20,7 @@ export default defineConfig({
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
+    robotsTxt(),
+
   ],
 });
