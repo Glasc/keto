@@ -65,7 +65,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
   }
 
   return (
-    <section className="pt-10 pb-10 ">
+    <section className="pt-10 pb-10">
       <div className="relative mx-auto max-w-[85rem] px-6 md:flex md:flex-row md:items-start md:gap-8">
         {/* mobile */}
         <section className="sticky top-0 z-50 my-6 flex justify-center bg-base-200 py-4 font-medium md:hidden">
@@ -73,7 +73,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
             <li></li>
             <li
               tabIndex={0}
-              className="rounded-full bg-secondary text-primary-content"
+              className="rounded-full bg-primary text-primary-content"
             >
               <div>
                 <RiArrowDownSLine size={20} />
@@ -83,7 +83,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
               <ul className="rounded-box bg-base-100 p-2">
                 <li
                   className={`${
-                    !selectedCategory && "bg-secondary"
+                    !selectedCategory && "bg-primary"
                   } text-primary-content`}
                 >
                   <button
@@ -98,7 +98,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                   return (
                     <li
                       className={`${
-                        isSelected && "bg-secondary"
+                        isSelected && "bg-primary"
                       } m-0 p-0 text-primary-content`}
                       key={category._id}
                     >
@@ -119,16 +119,17 @@ export const Categories = ({ categories }: CategoriesProps) => {
           </ul>
         </section>
 
-        <section className="sticky top-[1em] z-50 mr-4 hidden w-auto justify-center bg-base-100 font-medium shadow md:flex">
-          <ul className="menu mx-auto rounded-md overflow-hidden bg-base-100 shadow-sm ring-1 ring-slate-900/5 ">
+        <section className="sticky top-[1em] z-50 mr-4 hidden w-auto justify-center font-medium shadow md:flex">
+          <ul className="menu mx-auto rounded-md overflow-hidden shadow-sm ring-1 ring-slate-900/5 ">
             <li
               className={`${
-                !selectedCategory ? "bg-secondary" : "bg-base-100"
+                !selectedCategory ? "bg-primary" : "bg-base-100"
               } text-primary-content`}
             >
               {/* <a className="no-underline" href="#"> */}
               <a
-                className="mx-auto w-full justify-center rounded-none hover:bg-secondary/40"
+                className="mx-auto w-full justify-center rounded-none hover:bg-primary/40"
+                href="#categories"
                 onClick={() => handleCategoryClick(null)}
               >
                 Todos
@@ -140,13 +141,14 @@ export const Categories = ({ categories }: CategoriesProps) => {
               return (
                 <li
                   className={`${
-                    isSelected ? "bg-secondary" : "bg-base-100"
-                  } text-primary-content`}
+                    isSelected ? "bg-primary" : "bg-base-100"
+                  } text-primary-content border-none`}
                   key={category._id}
                 >
                   {/* <a href="#"> */}
                   <a
-                    className="btn bg-transparent mx-auto w-full justify-center rounded-none hover:bg-secondary/40"
+                    className="block py-4 text-center mx-auto w-full justify-center border-none rounded-none hover:bg-primary/40"
+                    href="#categories"
                     onClick={() => handleCategoryClick(category._id)}
                   >
                     {category.title}

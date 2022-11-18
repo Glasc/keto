@@ -6,9 +6,13 @@ type NavbarProps = {
   facebookUrl?: string;
   instagramUrl?: string;
   uberEatsUrl?: string;
-}
+};
 
-export const Navbar = ({ facebookUrl, instagramUrl, uberEatsUrl }: NavbarProps) => {
+export const Navbar = ({
+  facebookUrl,
+  instagramUrl,
+  uberEatsUrl,
+}: NavbarProps) => {
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
@@ -29,39 +33,47 @@ export const Navbar = ({ facebookUrl, instagramUrl, uberEatsUrl }: NavbarProps) 
           {/* <div></div> */}
           <DropDown />
           <div className="flex items-center gap-4">
-            <img
-              className={`mx-auto w-12 py-2 sm:w-16`}
-              src="/ketologo.webp"
-              alt="Img"
-            />
+            <a href="/">
+              <img
+                className={`mx-auto w-12 py-2 sm:w-16`}
+                src="/ketologo.webp"
+                alt="Img"
+              />
+            </a>
             <ul className="flex flex-col gap-2">
-              <li>
-                <a
-                  className="cursor-pointer"
-                  target="_blank"
-                  href={facebookUrl}
-                >
-                  <SiFacebook size={15} color="#1871E7" />
-                </a>
-              </li>
-              <li>
-                <a
-                  className="cursor-pointer"
-                  target="_blank"
-                  href={uberEatsUrl}
-                >
-                  <SiUbereats size={15} color="#06C167" />
-                </a>
-              </li>
-              <li>
-                <a
-                  className="cursor-pointer"
-                  target="_blank"
-                  href={instagramUrl}
-                >
-                  <SiInstagram size={15} color="#AF36A7" />
-                </a>
-              </li>
+              {facebookUrl && (
+                <li>
+                  <a
+                    className="cursor-pointer"
+                    target="_blank"
+                    href={facebookUrl}
+                  >
+                    <SiFacebook size={15} color="#1871E7" />
+                  </a>
+                </li>
+              )}
+              {uberEatsUrl && (
+                <li>
+                  <a
+                    className="cursor-pointer"
+                    target="_blank"
+                    href={uberEatsUrl}
+                  >
+                    <SiUbereats size={15} color="#06C167" />
+                  </a>
+                </li>
+              )}
+              {instagramUrl && (
+                <li>
+                  <a
+                    className="cursor-pointer"
+                    target="_blank"
+                    href={instagramUrl}
+                  >
+                    <SiInstagram size={15} color="#AF36A7" />
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
           <div></div>

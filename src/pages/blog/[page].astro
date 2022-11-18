@@ -49,11 +49,16 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
       }`;
     const listOfPosts: Post[] = await useSanityClient().fetch(query);
 
-    const listOfPostWithTransformedData = listOfPosts?.map((post: Post) => {
+    // sort the listOfPosts
+    const sortedPosts = listOfPosts.sort(
+      (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    );
+
+    const listOfPostWithTransformedData = sortedPosts?.map((post: Post) => {
       return { ...post, publishedAt: transformDate(post.publishedAt) };
     });
 
-    return paginate(listOfPostWithTransformedData, { pageSize: 1 });
+    return paginate(listOfPostWithTransformedData, { pageSize: 2 });
   } catch (err) {
     console.log("Oops!");
     return [];

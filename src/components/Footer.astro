@@ -2,12 +2,12 @@
 import { SiFacebook, SiUbereats, SiInstagram } from "react-icons/si/index.js";
 import type { Links } from "../layouts/Layout.astro";
 
-type Props = Links
+type Props = Links;
 
 const { facebookUrl, instagramUrl, uberEatsUrl } = Astro.props;
-
 ---
-<footer class="bg-gradient-to-r from-[#deedec] to-[#f2e8de] py-5 sm:p-10">
+
+<footer class="bg-base-300 py-5 sm:p-12">
   <div class="footer footer-center text-base-content rounded container">
     <div class="grid sm:grid-flow-col gap-4">
       <a class="link link-hover">About us</a>
@@ -17,9 +17,27 @@ const { facebookUrl, instagramUrl, uberEatsUrl } = Astro.props;
     </div>
     <div>
       <div class="flex space-x-6">
-        <a class="cursor-pointer" target="_blank" href={facebookUrl}><SiFacebook size={30} color="#1871E7" /></a>
-        <a class="cursor-pointer" target="_blank" href={uberEatsUrl}><SiUbereats size={30} color="#06C167" /></a>
-        <a class="cursor-pointer" target="_blank" href={instagramUrl}><SiInstagram size={30} color="#AF36A7" /></a>
+        {
+          facebookUrl && (
+            <a class="cursor-pointer" target="_blank" href={facebookUrl}>
+              <SiFacebook size={30} color="#1871E7" />
+            </a>
+          )
+        }
+        {
+          uberEatsUrl && (
+            <a class="cursor-pointer" target="_blank" href={uberEatsUrl}>
+              <SiUbereats size={30} color="#06C167" />
+            </a>
+          )
+        }
+        {
+          instagramUrl && (
+            <a class="cursor-pointer" target="_blank" href={instagramUrl}>
+              <SiInstagram size={30} color="#AF36A7" />
+            </a>
+          )
+        }
       </div>
     </div>
     <div>
