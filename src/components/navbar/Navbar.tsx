@@ -59,7 +59,7 @@ export const Navbar = ({
                     className="cursor-pointer"
                     target="_blank"
                     href={uberEatsUrl}
-                    aria-label="Haz tu pedido en uber eats"
+                    aria-label="Haz tu pedido en Uber Eats"
                   >
                     <SiUbereats size={15} color="#06C167" />
                   </a>
