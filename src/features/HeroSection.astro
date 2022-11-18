@@ -1,4 +1,5 @@
 ---
+import { Image } from "@astrojs/image/components";
 ---
 
 <section class="text-base-content relative z-30 py-14">
@@ -15,12 +16,18 @@
         Our cake bakery is small but with a big love for wonderful desserts is
         small but with a big love for wonderful desserts.
       </p>
-      <button class="btn btn-primary bg-primary lg:btn-lg shadow">Start now</button>
+      <button class="btn btn-primary bg-primary lg:btn-lg shadow"
+        >Start now</button
+      >
     </div>
-    <img
-      class="relative image mx-auto md:mr-0 w-96 md:max-w-xs lg:max-w-7xl"
-      src="/assets/platillos/KetoBakeryCafe_21.jpg"
-      alt="."
+
+    <Image
+      class="relative image mx-auto md:mr-0 w-96 md:max-w-xs lg:max-w-7xl object-cover"
+      src="/assets/undrawdonut2.svg"
+      format="webp"
+      width={891.38051}
+      height={573.8863}
+      alt="header side image"
     />
     <!-- <img
     class="image mx-auto md:mr-0 md:max-w-xs lg:max-w-xl"

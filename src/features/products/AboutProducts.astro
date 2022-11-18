@@ -1,19 +1,19 @@
 ---
-import { Image, Picture } from "@astrojs/image/components";
-
+import { Image } from "@astrojs/image/components";
 ---
-<section class="bg-secondary py-10 relative z-30">
+
+<section class="bg-secondary py-12 relative z-30">
   <div
     class="container grid gap-4 place-content-center md:grid-cols-2 md:items-center"
   >
-      <Image
-        src="/assets/negocio.jpg"
-        alt="platillos alrededor"
-        format="webp"
-        width={700}
-        aspectRatio={1 / 1}
-        class="image w-72 mx-auto rounded-lg row-start-2 md:row-start-auto md:w-full md:ml-0 md:max-w-xs"
-      />
+    <Image
+      class="image w-72 mx-auto rounded-lg row-start-2 shadow md:row-start-auto md:w-full md:ml-0 md:max-w-md"
+      src="/assets/platillos/KetoBakeryCafe_06.jpg"
+      alt="platillos alrededor"
+      format="webp"
+      width={900}
+      aspectRatio={16/9}
+    />
     <div
       class="text-center w-full max-w-sm mx-auto space-y-3 row-start-1 md:row-start-auto sm:max-w-md md:mr-0 md:text-start"
     >
