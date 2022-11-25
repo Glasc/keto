@@ -78,7 +78,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
               <div>
                 <RiArrowDownSLine size={20} />
                 Categoría:
-                <span>{currentCategoryName || "Todos"}</span>
+                <span className="block">{currentCategoryName || "Todos"}</span>
               </div>
               <ul className="rounded-box bg-base-100 p-2">
                 <li
@@ -86,12 +86,14 @@ export const Categories = ({ categories }: CategoriesProps) => {
                     !selectedCategory && "bg-primary"
                   } text-primary-content`}
                 >
-                  <a href="#categories"><button
-                    className="w-full"
-                    onClick={() => handleCategoryClick(null)}
-                  >
-                    Todos
-                  </button></a>
+                  <a href="#categories">
+                    <button
+                      className="w-full"
+                      onClick={() => handleCategoryClick(null)}
+                    >
+                      Todos
+                    </button>
+                  </a>
                 </li>
                 {categories?.map((category) => {
                   let isSelected = category._id === selectedCategory;
@@ -120,7 +122,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
         </section>
 
         <section className="sticky top-[1em] z-50 mr-4 hidden w-auto justify-center font-medium shadow md:flex">
-          <ul className="menu mx-auto rounded-md overflow-hidden shadow-sm ring-1 ring-slate-900/5 ">
+          <ul className="menu mx-auto overflow-hidden rounded-md shadow-sm ring-1 ring-slate-900/5 ">
             <li
               className={`${
                 !selectedCategory ? "bg-primary" : "bg-base-100"
@@ -142,12 +144,12 @@ export const Categories = ({ categories }: CategoriesProps) => {
                 <li
                   className={`${
                     isSelected ? "bg-primary" : "bg-base-100"
-                  } text-primary-content border-none`}
+                  } border-none text-primary-content`}
                   key={category._id}
                 >
                   {/* <a href="#"> */}
                   <a
-                    className="block py-4 text-center mx-auto w-full justify-center border-none rounded-none hover:bg-primary/40"
+                    className="mx-auto block w-full justify-center rounded-none border-none py-4 text-center hover:bg-primary/40"
                     href="#categories"
                     onClick={() => handleCategoryClick(category._id)}
                   >
