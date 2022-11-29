@@ -129,7 +129,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
           </ul>
         </section>
 
-        <section className="sticky top-[1em] z-50 mr-4 hidden w-auto justify-center font-medium shadow md:flex">
+        <section className="sticky top-[1em] z-50 mr-4 hidden w-auto justify-center font-medium shadow-sm md:flex">
           <ul className="menu mx-auto overflow-hidden rounded-md shadow-sm ring-1 ring-slate-900/5 ">
             <li
               className={`${
