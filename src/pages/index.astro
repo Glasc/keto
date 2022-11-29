@@ -6,13 +6,14 @@ import WaveVariant from "../features/WaveVariant.astro";
 import HeroSection from "../features/HeroSection.astro";
 import { Image } from "@astrojs/image/components";
 import Shape from "../features/Shape.astro";
+import Gallery from "../features/Gallery.astro";
 ---
 
 <Layout title="Keto Bakery">
-  <div class="w-full bg-base-200 text-base-content ">
+  <div class="w-full bg-base-200 text-base-content">
     <HeroSection />
     <AboutProducts />
-    <section class=" bg-[#DEEDEC]/40">
+    <section class="bg-[#DEEDEC]/40 min-h-screen">
       <div class="text-center pt-12">
         <h3 class="text-4xl font-semibold text-primary-content" id="categories">
           Productos
@@ -20,100 +21,8 @@ import Shape from "../features/Shape.astro";
       </div>
       <Products />
     </section>
-    
-    <div class="bg-secondary/50 py-16">
-      <section class="container grid sm:grid-cols-2 gap-3 overflow-hidden">
-        <div>
-          <Image
-            src="/assets/negocio2.jpg"
-            alt="platillos alrededor"
-            format="webp"
-            width={600}
-            aspectRatio={1 / 1}
-            class="rounded-md shadow"
-          />
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <Image
-            src="/assets/platillos/KetoBakeryCafe_01.jpg"
-            alt="platillos alrededor"
-            format="webp"
-            width={300}
-            aspectRatio={1 / 1}
-            class="rounded-md shadow"
-          />
-          <Image
-            src="/assets/platillos/KetoBakeryCafe_02.jpg"
-            alt="platillos alrededor"
-            format="webp"
-            width={300}
-            aspectRatio={1 / 1}
-            class="rounded-md shadow"
-          />
-          <Image
-            src="/assets/platillos/KetoBakeryCafe_03.jpg"
-            alt="platillos alrededor"
-            format="webp"
-            width={300}
-            aspectRatio={1 / 1}
-            class="rounded-md shadow"
-          />
-          <Image
-            src="/assets/platillos/KetoBakeryCafe_04.jpg"
-            alt="platillos alrededor"
-            format="webp"
-            width={300}
-            aspectRatio={1 / 1}
-            class="rounded-md shadow"
-          />
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <Image
-            src="/assets/platillos/KetoBakeryCafe_05.jpg"
-            alt="platillos alrededor"
-            format="webp"
-            width={300}
-            aspectRatio={1 / 1}
-            class="rounded-md shadow"
-          />
-          <Image
-            src="/assets/platillos/KetoBakeryCafe_06.jpg"
-            alt="platillos alrededor"
-            format="webp"
-            width={300}
-            aspectRatio={1 / 1}
-            class="rounded-md shadow"
-          />
-          <Image
-            src="/assets/platillos/KetoBakeryCafe_07.jpg"
-            alt="platillos alrededor"
-            format="webp"
-            width={300}
-            aspectRatio={1 / 1}
-            class="rounded-md shadow"
-          />
-          <Image
-            src="/assets/platillos/KetoBakeryCafe_08.jpg"
-            alt="platillos alrededor"
-            format="webp"
-            width={300}
-            aspectRatio={1 / 1}
-            class="rounded-md shadow"
-          />
-        </div>
-        <div>
-          <Image
-            src="/assets/negocio4.jpg"
-            alt="platillos alrededor"
-            format="webp"
-            width={600}
-            aspectRatio={1 / 1}
-            class="rounded-md shadow"
-          />
-        </div>
-      </section>
-    </div>
 
+    <Gallery />
     <Shape />
   </div>
 </Layout>

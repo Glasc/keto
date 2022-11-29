@@ -21,7 +21,6 @@ export async function getCategories(): Promise<Category[]> {
 }
 
 const categories = await getCategories();
-
 ---
 
 <Categories categories={categories} client:visible />

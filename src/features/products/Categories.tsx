@@ -1,5 +1,5 @@
 import { RiArrowDownSLine } from "react-icons/ri/index.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export type Category = {
   _id: string;
@@ -60,6 +60,8 @@ export const Categories = ({ categories }: CategoriesProps) => {
     handleCategoryClick,
   } = useCategories(categories);
 
+  const [toggleNavbarMenu, setToggleNavbarMenu] = useState(false);
+
   if (!categories) {
     return <p>Cargando...</p>;
   }
@@ -74,25 +76,32 @@ export const Categories = ({ categories }: CategoriesProps) => {
             <li
               tabIndex={0}
               className="rounded-full bg-primary text-primary-content"
+              
             >
-              <div>
+              <div onClick={() => setToggleNavbarMenu(true)}>
                 <RiArrowDownSLine size={20} />
                 Categoría:
                 <span className="block">{currentCategoryName || "Todos"}</span>
               </div>
-              <ul className="rounded-box bg-base-100 p-2">
+
+              <ul
+                className={`rounded-box bg-base-100 p-2 ${
+                  toggleNavbarMenu ? "flex" : "hidden"
+                }`}
+              >
                 <li
                   className={`${
                     !selectedCategory && "bg-primary"
                   } text-primary-content`}
                 >
-                  <a href="#categories">
-                    <button
-                      className="w-full"
-                      onClick={() => handleCategoryClick(null)}
-                    >
-                      Todos
-                    </button>
+                  <a
+                    href="#categories"
+                    onClick={() => {
+                      setToggleNavbarMenu(false);
+                      handleCategoryClick(null);
+                    }}
+                  >
+                    <button className="w-full">Todos</button>
                   </a>
                 </li>
                 {categories?.map((category) => {
@@ -104,11 +113,14 @@ export const Categories = ({ categories }: CategoriesProps) => {
                       } m-0 p-0 text-primary-content`}
                       key={category._id}
                     >
-                      <a href="#categories">
-                        <button
-                          className="w-full text-center"
-                          onClick={() => handleCategoryClick(category._id)}
-                        >
+                      <a
+                        href="#categories"
+                        onClick={() => {
+                          setToggleNavbarMenu(false);
+                          handleCategoryClick(category._id);
+                        }}
+                      >
+                        <button className="w-full text-center ">
                           {category.title}
                         </button>
                       </a>
@@ -163,7 +175,9 @@ export const Categories = ({ categories }: CategoriesProps) => {
         </section>
 
         {/* <div className="flex w-full flex-wrap justify-start gap-4 md:gap-6 "> */}
-        <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(250px,_1fr))] justify-end gap-4 md:gap-6">
+        <div
+          className={`grid w-full grid-cols-[repeat(auto-fit,minmax(250px,_1fr))] justify-end gap-4 md:gap-6`}
+        >
           {categoriesToShow?.map((category) => {
             const categoryProducts = category.products;
 
@@ -171,12 +185,16 @@ export const Categories = ({ categories }: CategoriesProps) => {
               return (
                 <div
                   key={product._id}
-                  className="card-compact card w-full rounded-md bg-base-100 shadow ring-1 ring-slate-900/5 "
+                  className={`card-compact card ${
+                    categoryProducts.length > 1
+                      ? "w-full"
+                      : "mx-auto w-[250px] md:mx-0"
+                  } new-box rounded-md bg-base-100 shadow ring-1 ring-slate-900/5`}
                 >
                   <figure className="border-none">
-                    {product.image && (
+                    {product?.image && (
                       <img
-                        className="w-full select-none"
+                        className="w-full max-w-xs select-none"
                         src={`${product?.image}?w=400&fm=webp`}
                         alt={product?.description}
                       />
