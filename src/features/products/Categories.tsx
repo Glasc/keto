@@ -14,10 +14,7 @@ export type Category = {
 export type Product = {
   _id: string;
   _type: string;
-  price: number;
-  priceSmall: number;
-  priceMedium: number;
-  priceLarge: number;
+  prices: string[];
   title: string;
   description: string;
   image: string | null;
@@ -76,7 +73,6 @@ export const Categories = ({ categories }: CategoriesProps) => {
             <li
               tabIndex={0}
               className="rounded-full bg-primary text-primary-content"
-              
             >
               <div onClick={() => setToggleNavbarMenu(true)}>
                 <RiArrowDownSLine size={20} />
@@ -205,6 +201,16 @@ export const Categories = ({ categories }: CategoriesProps) => {
                       {product.title}
                     </h2>
                     <p className="text-sm">{product.description}</p>
+                    <div className="mt-3 text-neutral-content/80 space-y-1">
+                      {product?.prices?.length > 0 &&
+                        product.prices.map((price, idx) => {
+                          return (
+                            <p className="text-xs" key={idx}>
+                              {price}
+                            </p>
+                          );
+                        })}
+                    </div>
                   </div>
                 </div>
               );

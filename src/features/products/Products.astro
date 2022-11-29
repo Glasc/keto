@@ -3,21 +3,15 @@ import { useSanityClient } from "astro-sanity";
 import { Categories, Category } from "./Categories";
 
 export async function getCategories(): Promise<Category[]> {
-  try {
-    const query = `*[_type == "category"]{
+  const query = `*[_type == "category"]{
   _id, 
-  products[]->{_id, _type, price, priceSmall, priceMedium, "image":image.asset->url, priceLarge, description, title}, 
+  products[]->{_id, _type, prices, "image":image.asset->url, description, title}, 
   title, 
   slug
 }`;
-    const listOfCategories = (await useSanityClient().fetch(
-      query
-    )) as Category[];
+  const listOfCategories = (await useSanityClient().fetch(query)) as Category[];
 
-    return listOfCategories;
-  } catch (err) {
-    return [];
-  }
+  return listOfCategories;
 }
 
 const categories = await getCategories();
