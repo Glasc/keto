@@ -23,7 +23,7 @@ const photos = await getGalleryPhotos();
   >
     <div>
       <Image
-        src={photos[0]?.url}
+        src={photos[0]?.url || "/assets/gallery_alt.png"}
         for="my-modal-4"
         alt="platillos alrededor"
         format="webp"
@@ -35,7 +35,7 @@ const photos = await getGalleryPhotos();
     <div class="grid grid-cols-2 gap-3 sm:gap-5">
       <Image
         for="my-modal-2"
-        src={photos[1].url}
+        src={photos[1]?.url || "/assets/gallery_alt.png"}
         alt="platillos alrededor"
         format="webp"
         width={300}
@@ -43,7 +43,7 @@ const photos = await getGalleryPhotos();
         class="rounded-md shadow"
       />
       <Image
-        src={photos[2].url}
+        src={photos[2]?.url || "/assets/gallery_alt.png"}
         alt="platillos alrededor"
         format="webp"
         width={300}
@@ -51,7 +51,7 @@ const photos = await getGalleryPhotos();
         class="rounded-md shadow"
       />
       <Image
-        src={photos[3].url}
+        src={photos[3]?.url || "/assets/gallery_alt.png"}
         alt="platillos alrededor"
         format="webp"
         width={300}
@@ -59,7 +59,7 @@ const photos = await getGalleryPhotos();
         class="rounded-md shadow"
       />
       <Image
-        src={photos[4].url}
+        src={photos[4]?.url || "/assets/gallery_alt.png"}
         alt="platillos alrededor"
         format="webp"
         width={300}
@@ -69,7 +69,7 @@ const photos = await getGalleryPhotos();
     </div>
     <div class="grid grid-cols-2 gap-3 sm:gap-5">
       <Image
-        src={photos[5].url}
+        src={photos[5]?.url || "/assets/gallery_alt.png"}
         alt="platillos alrededor"
         format="webp"
         width={300}
@@ -77,7 +77,7 @@ const photos = await getGalleryPhotos();
         class="rounded-md shadow"
       />
       <Image
-        src={photos[6].url}
+        src={photos[6]?.url || "/assets/gallery_alt.png"}
         alt="platillos alrededor"
         format="webp"
         width={300}
@@ -85,7 +85,7 @@ const photos = await getGalleryPhotos();
         class="rounded-md shadow"
       />
       <Image
-        src={photos[7].url}
+        src={photos[7]?.url || "/assets/gallery_alt.png"}
         alt="platillos alrededor"
         format="webp"
         width={300}
@@ -93,7 +93,7 @@ const photos = await getGalleryPhotos();
         class="rounded-md shadow"
       />
       <Image
-        src={photos[8].url}
+        src={photos[8]?.url || "/assets/gallery_alt.png"}
         alt="platillos alrededor"
         format="webp"
         width={300}
@@ -103,7 +103,7 @@ const photos = await getGalleryPhotos();
     </div>
     <div>
       <Image
-        src={photos[9].url}
+        src={photos[9]?.url || "/assets/gallery_alt.png"}
         alt="platillos alrededor"
         format="webp"
         width={600}
