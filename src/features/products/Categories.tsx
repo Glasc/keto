@@ -101,7 +101,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                   </a>
                 </li>
                 {categories?.map((category) => {
-                  let isSelected = category._id === selectedCategory;
+                  let isSelected = category?._id === selectedCategory;
                   return (
                     <li
                       className={`${
@@ -198,7 +198,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                     {product?.image && (
                       <img
                         className="w-full max-w-xs select-none"
-                        src={`${product?.image}?w=500&fm=webp`}
+                        src={`${product?.image}?w=400&fm=webp`}
                         alt={product?.description}
                       />
                     )}
