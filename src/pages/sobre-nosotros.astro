@@ -35,7 +35,7 @@ export async function getSchedule(): Promise<Schedule> {
     domingo: schedule.domingo,
   };
 
-  return scheduleOrdered
+  return scheduleOrdered;
 }
 
 const schedule = await getSchedule();
@@ -55,7 +55,6 @@ const schedule = await getSchedule();
           format="webp"
           alt="Sobre nosotros"
         />
-        
       </div>
 
       <div
@@ -65,10 +64,15 @@ const schedule = await getSchedule();
           Quiénes somos
         </h1>
         <p class="pt-3">
-          Ketobakery & coffee es una cafetería que ofrece postres saludables elaborados con ingredientes muy bajos o sin carbohidratos especialmente para ayudar a los que se encuentran en dieta cetogénica, low carb o con problemas de glucosa elevada (diabetes). 
+          Ketobakery & coffee es una cafetería que ofrece postres saludables
+          elaborados con ingredientes muy bajos o sin carbohidratos
+          especialmente para ayudar a los que se encuentran en dieta cetogénica,
+          low carb, gluten free, opciones veganas o con problemas de glucosa
+          elevada (diabetes).
         </p>
         <p class="pt-3">
-          En barra de café manejamos bebidas clásicas (americano, capuccino, moka frapes) y bebidas sin azúcar, chai, matcha, tés, tizanas, frape ketl...
+          En barra de café manejamos bebidas clásicas (americano, capuccino,
+          moka frapes) y bebidas sin azúcar, chai, matcha, tés, tizanas...
         </p>
       </div>
     </section>
@@ -115,6 +119,9 @@ const schedule = await getSchedule();
                       <td>
                         {hours.map((hour) => {
                           if (!hour) return null;
+                          if (hour === "Cerrado") {
+                            return <span class="block text-red-500 font-semibold">{hour}</span>;
+                          }
                           return <span class="block">{hour}</span>;
                         })}
                       </td>

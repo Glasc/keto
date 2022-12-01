@@ -2,9 +2,9 @@
 import { Image } from "@astrojs/image/components";
 ---
 
-<section class="text-base-content relative z-30 py-14">
+<section class="text-base-content relative z-30 pt-0 pb-6">
   <div
-    class="container space-y-8 p-16 md:my-8 md:grid md:grid-cols-2 md:items-center md:space-y-0"
+    class="container space-y-8 p-16 md:my-8 md:grid md:grid-cols-2 md:items-center md:space-y-0 gap-6"
   >
     <div
       class="text-center w-full max-w-sm sm:max-w-md mx-auto space-y-6 md:ml-0 md:text-start"
@@ -17,17 +17,20 @@ import { Image } from "@astrojs/image/components";
         veganos; además de barra de café en donde podrás encontrar bebidas
         deliciosas.
       </p>
-      <a href="#categories" class="block"><button class="btn btn-primary bg-primary lg:btn-lg shadow"
-        >Ver productos</button
-      ></a>
+      <a href="#categories" class="block"
+        ><button class="btn btn-primary bg-primary lg:btn-lg shadow"
+          >Ver productos</button
+        >
+      </a>
     </div>
 
     <Image
-      class="relative image mx-auto md:mr-0 w-96 md:max-w-xs lg:max-w-fit object-cover"
-      src="/assets/undrawdonut2.svg"
+      class="relative rounded-lg w-96 md:max-w-xs lg:max-w-fit image mx-auto md:mr-0 shadow"
+      src="/assets/platillos/KetoBakeryCafe_22.jpg"
       format="webp"
-      width={891.38051}
-      height={573.8863}
+      fit="fill"
+      width={430}
+      aspectRatio={3 / 4}
       alt="header side image"
     />
     <!-- <img
