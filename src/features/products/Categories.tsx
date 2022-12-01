@@ -170,9 +170,9 @@ export const Categories = ({ categories }: CategoriesProps) => {
           </ul>
         </section>
 
-        {/* <div className="flex w-full flex-wrap justify-start gap-4 md:gap-6 "> */}
+            {/* TODO: cambiar items-start */}
         <div
-          className={`grid w-full grid-cols-[repeat(auto-fit,minmax(250px,_1fr))] justify-end gap-4 md:gap-6`}
+          className={`grid w-full grid-cols-[repeat(auto-fit,minmax(250px,_1fr))] items-start justify-end gap-4 md:gap-6`}
         >
           {categoriesToShow?.map((category) => {
             const categoryProducts = category.products;
@@ -201,13 +201,14 @@ export const Categories = ({ categories }: CategoriesProps) => {
                       {product.title}
                     </h2>
                     <p className="text-sm">{product.description}</p>
-                    <div className="mt-3 text-neutral-content/80 space-y-1">
+                    <div className="mt-3 empty:mt-0 text-neutral-content/80">
                       {product?.prices?.length > 0 &&
                         product.prices.map((price, idx) => {
+                          if (!price) return
                           return (
                             <p className="text-xs" key={idx}>
                               {price}
-                            </p>
+                            </p>  
                           );
                         })}
                     </div>
