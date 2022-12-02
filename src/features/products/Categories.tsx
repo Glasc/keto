@@ -72,7 +72,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
             <li></li>
             <li
               tabIndex={0}
-              className="rounded-full bg-primary text-primary-content"
+              className="rounded-full bg-primary text-primary-content text-sm"
             >
               <div onClick={() => setToggleNavbarMenu(true)}>
                 <RiArrowDownSLine size={20} />
@@ -88,7 +88,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                 <li
                   className={`${
                     !selectedCategory && "bg-primary"
-                  } text-primary-content`}
+                  } text-primary-content text-sm`}
                 >
                   <a
                     onClick={() => {
@@ -97,7 +97,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                       handleCategoryClick(null);
                     }}
                   >
-                    <button className="w-full">Todos</button>
+                    <button className="w-full text-sm">Todos</button>
                   </a>
                 </li>
                 {categories?.map((category) => {
@@ -119,7 +119,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                           handleCategoryClick(category._id);
                         }}
                       >
-                        <button className="w-full text-center ">
+                        <button className="w-full text-center text-sm">
                           {category.title}
                         </button>
                       </a>

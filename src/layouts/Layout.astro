@@ -52,7 +52,20 @@ const { title } = Astro.props;
       <slot />
     </div>
     <Footer {...socialMediaLinks} />
-
+    <!-- <button
+      class="p-6 rounded-full btn-primary fixed bottom-9 right-7 mt-1 shadow-lg"
+      onclick="scrollTop()"
+    >
+      ^
+    </button> -->
     <style is:global lang="scss"></style>
   </body>
 </html>
+
+<script>
+  function scrollTop() {
+    console.log("xd")
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+</script>
