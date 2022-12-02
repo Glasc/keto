@@ -68,7 +68,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
       <div className="relative mx-auto max-w-[90rem] px-6 md:flex md:flex-row md:items-start md:gap-8">
         {/* mobile */}
         <section className="sticky top-2 z-50 flex justify-center pb-6 font-medium md:hidden">
-          <ul className="menu menu-horizontal mx-auto">
+          <ul className="menu menu-horizontal mx-auto w-full">
             <li></li>
             <li
               tabIndex={0}

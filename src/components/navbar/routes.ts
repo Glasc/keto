@@ -22,7 +22,7 @@ const routes = [
     icon: RiFilePaper2Line,
   },
   {
-    href: "mailto: lanutris@hotmail.com",
+    href: "mailto: biosante.nut@gmail.com",
     title: "Contacto",
     icon: RiMailSendLine,
   },
