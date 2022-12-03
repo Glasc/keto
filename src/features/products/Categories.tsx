@@ -90,16 +90,15 @@ export const Categories = ({ categories }: CategoriesProps) => {
                     !selectedCategory && "bg-primary"
                   } text-sm text-primary-content`}
                 >
-                  <a
-                    aria-label="Cambiar categoría"
+                  <button
                     onClick={() => {
                       document?.getElementById("categories")?.scrollIntoView();
                       setToggleNavbarMenu(false);
                       handleCategoryClick(null);
                     }}
                   >
-                    <button className="w-full text-sm">Todos</button>
-                  </a>
+                    <div className="w-full text-sm">Todos</div>
+                  </button>
                 </li>
                 {categories?.map((category) => {
                   let isSelected = category?._id === selectedCategory;
@@ -110,8 +109,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                       } m-0 p-0 text-primary-content`}
                       key={category._id}
                     >
-                      <a
-                        aria-label="Cambiar categoría"
+                      <button
                         onClick={() => {
                           document
                             ?.getElementById("categories")
@@ -121,10 +119,10 @@ export const Categories = ({ categories }: CategoriesProps) => {
                           handleCategoryClick(category._id);
                         }}
                       >
-                        <button className="w-full text-center text-sm">
+                        <div className="w-full text-center text-sm">
                           {category.title}
-                        </button>
-                      </a>
+                        </div>
+                      </button>
                     </li>
                   );
                 })}
@@ -142,8 +140,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
               } text-primary-content`}
             >
               {/* <a className="no-underline" href="#"> */}
-              <a
-                aria-label="Cambiar categoría"
+              <button
                 className="mx-auto w-full justify-center rounded-none hover:bg-primary/40"
                 onClick={() => {
                   handleCategoryClick(null);
@@ -151,7 +148,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                 }}
               >
                 Todos
-              </a>
+              </button>
               {/* </a> */}
             </li>
             {categories?.map((category) => {
@@ -164,16 +161,15 @@ export const Categories = ({ categories }: CategoriesProps) => {
                   key={category._id}
                 >
                   {/* <a href="#"> */}
-                  <a
+                  <button
                     className="mx-auto block w-full justify-center rounded-none border-none py-4 text-center hover:bg-primary/40"
-                    aria-label="Cambiar categoría"
                     onClick={() => {
                       handleCategoryClick(category._id);
                       document?.getElementById("categories")?.scrollIntoView();
                     }}
                   >
                     {category.title}
-                  </a>
+                  </button>
                   {/* </a> */}
                 </li>
               );
