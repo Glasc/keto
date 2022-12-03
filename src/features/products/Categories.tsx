@@ -72,7 +72,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
             <li></li>
             <li
               tabIndex={0}
-              className="rounded-full bg-primary text-primary-content text-sm"
+              className="rounded-full bg-primary text-sm text-primary-content"
             >
               <div onClick={() => setToggleNavbarMenu(true)}>
                 <RiArrowDownSLine size={20} />
@@ -88,9 +88,10 @@ export const Categories = ({ categories }: CategoriesProps) => {
                 <li
                   className={`${
                     !selectedCategory && "bg-primary"
-                  } text-primary-content text-sm`}
+                  } text-sm text-primary-content`}
                 >
                   <a
+                    aria-label="Cambiar categoría"
                     onClick={() => {
                       document?.getElementById("categories")?.scrollIntoView();
                       setToggleNavbarMenu(false);
@@ -110,6 +111,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                       key={category._id}
                     >
                       <a
+                        aria-label="Cambiar categoría"
                         onClick={() => {
                           document
                             ?.getElementById("categories")
@@ -141,6 +143,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
             >
               {/* <a className="no-underline" href="#"> */}
               <a
+                aria-label="Cambiar categoría"
                 className="mx-auto w-full justify-center rounded-none hover:bg-primary/40"
                 onClick={() => {
                   handleCategoryClick(null);
@@ -163,6 +166,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                   {/* <a href="#"> */}
                   <a
                     className="mx-auto block w-full justify-center rounded-none border-none py-4 text-center hover:bg-primary/40"
+                    aria-label="Cambiar categoría"
                     onClick={() => {
                       handleCategoryClick(category._id);
                       document?.getElementById("categories")?.scrollIntoView();
