@@ -12,12 +12,8 @@ body {
 
 html {
   font-family: "Poppins", sans-serif;
-  scroll-behavior: smooth;
 }
 
-.xd {
-  scroll-behavior: auto;
-}
 
 html,
 body {
