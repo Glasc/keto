@@ -65,7 +65,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
 
   return (
     <section className="pt-10 pb-10">
-      <div className="relative mx-auto max-w-[90rem] px-6 md:flex md:flex-row md:items-start md:gap-8">
+      <div className="relative mx-auto max-w-[90rem] px-2 sm:px-6 md:flex md:flex-row md:items-start md:gap-8">
         {/* mobile */}
         <section className="sticky top-2 z-50 flex justify-center pb-6 font-medium md:hidden">
           <ul className="menu menu-horizontal mx-auto w-full">
@@ -80,7 +80,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
               </div>
 
               <ul
-                className={`rounded-box bg-base-100 p-2 w-full text-xs md:text-base ${
+                className={`rounded-box bg-base-100 p-2 text-xs md:text-base ${
                   toggleNavbarMenu ? "flex" : "hidden"
                 }`}
               >
@@ -131,7 +131,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
         </section>
 
         <section className="sticky top-[1em] z-50 mr-4 hidden w-auto justify-center font-medium shadow-sm md:flex">
-          <ul className="menu mx-auto overflow-hidden rounded-md shadow-sm ring-1 ring-slate-900/5 ">
+          <ul className="menu mx-auto text-sm overflow-hidden rounded-md shadow-sm ring-1 ring-slate-900/5 ">
             <li
               className={`${
                 !selectedCategory ? "bg-primary" : "bg-base-100"
