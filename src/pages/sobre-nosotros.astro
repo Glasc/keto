@@ -77,6 +77,58 @@ const schedule = await getSchedule();
       </div>
     </section>
 
+    <div class="bg-[#deeae1] py-12 px:2 md:px-6 mt-10">
+      <section class="md:flex max-w-md md:max-w-6xl mx-auto gap-3 md:gap-12 ">
+        <Image
+          class="w-72 md:w-full rounded-lg h-full shadow-lg mx-auto mb-6 md:mb-0"
+          src="/assets/about-me.jfif"
+          width={400}
+          aspectRatio={3 / 4}
+          format="webp"
+          alt="Sobre nosotros"
+        />
+        <section class="space-y-3 text-neutral-content/80 text-justify">
+          <h2 class="text-4xl font-semibold mb-3 text-neutral-content/90 text-center md:text-left">
+            Sobre mí
+          </h2>
+          <p>
+            Mi nombre es Mary Álvarez y soy Licenciada en Nutrición egresada de
+            la Universidad de Guadalajara (Univa Gdl). También realicé un
+            posgrado en Nutrición Clínica en la Universidad del Valle de México,
+            ya que me apasiona este campo. Además, cursé un diplomado en
+            Educación y Acompañamiento en Diabetes.
+          </p>
+
+          <p>
+            No solo te puedo ayudar a cumplir tus metas para perder peso o
+            aumentar masa muscular, si no que me especializo en el cuidado del
+            paciente mediante la alimentación en diferentes enfermedades, además
+            de nutrición en el embarazo, lactancia, y diversas etapas de la
+            vida.
+          </p>
+
+          <p>
+            Amo la comida tanto como tú. Me gusta la cocina y me apasiona la
+            repostería, es por eso que logro conectarme con mis pacientes y
+            empatizar. No solo se trata de restringir alimentos, si no saber
+            cuales elegir y en qué cantidad. Claro, no todo es sobre alimentos,
+            si no mantener un equilibrio de cuerpo y mente para tener salud.
+          </p>
+
+          <p>
+            Sumado a esto, ya tengo un par de años especializada en dieta keto,
+            certificada y dedicada a su acompañamiento. Inicié mi negocio de
+            postres keto o reducidos en azúcar de @keto Bakery, especial para
+            pacientes con diabetes o aquellos que realizan el régimen Keto. Pero
+            poco a poco se fueron sumando también colegas que nos brindan
+            postres veganos, glutenfree, ketofriendly.
+          </p>
+
+          <p>Gracias por confiar en mí y en este proyecto 💞💞 ☺️🍉🍎!</p>
+        </section>
+      </section>
+    </div>
+
     <section class="max-w-5xl mx-auto pb-12 px-6">
       <h2 class="text-neutral-content text-center mt-16 font-semibold text-3xl">
         Ubicación y horario
@@ -120,7 +172,11 @@ const schedule = await getSchedule();
                         {hours.map((hour) => {
                           if (!hour) return null;
                           if (hour === "Cerrado") {
-                            return <span class="block text-red-500 font-semibold">{hour}</span>;
+                            return (
+                              <span class="block font-semibold text-red-500">
+                                {hour}
+                              </span>
+                            );
                           }
                           return <span class="block">{hour}</span>;
                         })}
