@@ -64,7 +64,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
   }
 
   return (
-    <section className="pt-10 pb-10">
+    <section className="xd pt-10 pb-10">
       <div className="relative mx-auto max-w-[90rem] px-2 sm:px-6 md:flex md:flex-row md:items-start md:gap-8">
         {/* mobile */}
         <section className="sticky top-2 z-50 flex justify-center pb-6 font-medium md:hidden">

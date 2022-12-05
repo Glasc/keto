@@ -6,6 +6,7 @@ import { useSanityClient } from "astro-sanity";
 
 export interface Props {
   title: string;
+  background?: string;
 }
 
 export type Links = {
@@ -28,7 +29,7 @@ export async function getSocialLinks(): Promise<Links> {
 
 const socialMediaLinks = await getSocialLinks();
 
-const { title } = Astro.props;
+const { title, background = "bg-base-200" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -46,7 +47,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-base-200 flex flex-col min-h-screen relative">
+  <body class={`${background} flex flex-col min-h-screen relative`}>
     <Navbar {...socialMediaLinks} client:load />
     <div class="flex-1 flex">
       <slot />
@@ -64,7 +65,7 @@ const { title } = Astro.props;
 
 <script>
   function scrollTop() {
-    console.log("xd")
+    console.log("xd");
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }

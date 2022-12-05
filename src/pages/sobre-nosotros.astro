@@ -41,44 +41,42 @@ export async function getSchedule(): Promise<Schedule> {
 const schedule = await getSchedule();
 ---
 
-<Layout title="Sobre nosotros">
+<Layout title="Sobre nosotros" background="bg-[#F2F0EE]">
   <main class="w-full">
-    <section
-      class="max-w-md md:max-w-5xl py-8 flex flex-col gap-5 md:flex-row mx-auto px-6"
-    >
-      <div class="md:w-1/2 md:ml-16 rounded-lg overflow-hidden">
-        <!-- <img class="w-full rounded-lg" src="/assets/test.jpg" alt="" /> -->
+    <div class="bg-[#F2F0EE] py-16 px:2 md:px-6">
+      <section
+        class="md:flex max-w-md md:max-w-3xl mx-auto gap-3 md:gap-12 "
+      >
+        <div class="space-y-3 text-secondary-content/90 text-justify">
+          <h1 class="text-4xl font-semibold mb-4 text-secondary-content text-center md:text-left">
+            Quiénes somos
+          </h1>
+          <p class="">
+            Ketobakery & coffee es una cafetería que ofrece postres saludables
+            elaborados con ingredientes muy bajos o sin carbohidratos
+            especialmente para ayudar a los que se encuentran en dieta
+            cetogénica, low carb, gluten free, opciones veganas o con problemas
+            de glucosa elevada (diabetes).
+          </p>
+          <p class="">
+            En barra de café manejamos bebidas clásicas (americano, capuccino,
+            moka frapes) y bebidas sin azúcar, chai, matcha, tés, tizanas...
+          </p>
+        </div>
+
         <Image
-          src="/assets/platillos/KetoBakeryCafe_09.jpg"
-          width={500}
-          height={700}
+          class="w-72 md:w-full rounded-lg h-full shadow-lg mx-auto mt-6 md:mt-0"
+          src="/assets/hero_alt.jpg"
+          width={350}
+          aspectRatio={3 / 4}
           format="webp"
           alt="Sobre nosotros"
         />
-      </div>
+      </section>
+    </div>
 
-      <div
-        class="md:w-1/2 md:relative top-10 right-16 md:rounded-lg shadow md:bg-secondary md:p-8 md:ring-1 md:ring-slate-900/5"
-      >
-        <h1 class="font-semibold text-3xl text-neutral-content">
-          Quiénes somos
-        </h1>
-        <p class="pt-3">
-          Ketobakery & coffee es una cafetería que ofrece postres saludables
-          elaborados con ingredientes muy bajos o sin carbohidratos
-          especialmente para ayudar a los que se encuentran en dieta cetogénica,
-          low carb, gluten free, opciones veganas o con problemas de glucosa
-          elevada (diabetes).
-        </p>
-        <p class="pt-3">
-          En barra de café manejamos bebidas clásicas (americano, capuccino,
-          moka frapes) y bebidas sin azúcar, chai, matcha, tés, tizanas...
-        </p>
-      </div>
-    </section>
-
-    <div class="bg-[#deeae1] py-12 px:2 md:px-6 mt-10">
-      <section class="md:flex max-w-md md:max-w-6xl mx-auto gap-3 md:gap-12 ">
+    <div class="bg-[#EEF5F5] py-16 px:2 md:px-6 leaf-background">
+      <section class="md:flex max-w-md md:max-w-6xl mx-auto gap-3 md:gap-12">
         <Image
           class="w-72 md:w-full rounded-lg h-full shadow-lg mx-auto mb-6 md:mb-0"
           src="/assets/about-me.jfif"
@@ -88,7 +86,9 @@ const schedule = await getSchedule();
           alt="Sobre nosotros"
         />
         <section class="space-y-3 text-neutral-content/80 text-justify">
-          <h2 class="text-4xl font-semibold mb-3 text-neutral-content/90 text-center md:text-left">
+          <h2
+            class="text-4xl font-semibold mb-4 text-neutral-content/90 text-center md:text-left"
+          >
             Sobre mí
           </h2>
           <p>
@@ -129,8 +129,8 @@ const schedule = await getSchedule();
       </section>
     </div>
 
-    <section class="max-w-5xl mx-auto pb-12 px-6">
-      <h2 class="text-neutral-content text-center mt-16 font-semibold text-3xl">
+    <section class="max-w-5xl mx-auto py-12 px-6">
+      <h2 class="text-neutral-content text-center font-semibold text-3xl">
         Ubicación y horario
       </h2>
       <div class="flex flex-col md:flex-row gap-6 justify-center mt-6 mx-auto">

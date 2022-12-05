@@ -80,9 +80,9 @@ const page: Page<Post> = props?.page || [];
           page.data?.map((post: Post) => {
             return (
               <a class="block hover:no-underline" href={`/blog/${post._id}`}>
-                <article class="bg-base-100 hover:ring-secondary grid max-w-sm cursor-pointer grid-cols-1 items-start space-x-3 rounded-md shadow-sm ring-1 ring-slate-900/5 transition duration-300 ease-in-out hover:shadow-lg hover:ring-2 md:max-w-full md:grid-cols-[30%_1fr]">
+                <article class="bg-base-100 hover:ring-secondary grid max-w-sm cursor-pointer grid-cols-1 items-start space-x-3 rounded-md shadow-sm ring-1 ring-slate-900/5 transition duration-300 ease-in-out hover:shadow-lg hover:ring-2 md:max-w-full md:grid-cols-[auto_1fr]">
                   <img
-                    class="w-full self-center rounded-md"
+                    class="w-full max-w-[10rem] self-center rounded-md"
                     src={`${post?.imageUrl}?w=400&fm=webp`}
                     alt="Post image"
                   />
