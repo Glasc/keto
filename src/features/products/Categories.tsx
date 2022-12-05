@@ -73,14 +73,14 @@ export const Categories = ({ categories }: CategoriesProps) => {
               tabIndex={0}
               className="rounded-full w-full sm:w-auto mx-auto bg-primary text-sm text-primary-content flex justify-center"
             >
-              <div className="text-center w-full sm:w-auto justify-center text-xs sm:text-sm md:text-base" onClick={() => setToggleNavbarMenu(true)}>
+              <div className="text-center w-full sm:w-auto justify-center text-sm md:text-base" onClick={() => setToggleNavbarMenu(prev => !prev  )}>
                 <RiArrowDownSLine size={20} />
                 Categoría:
                 <span className="block">{currentCategoryName || "Todos"}</span>
               </div>
 
               <ul
-                className={`rounded-box bg-base-100 p-2 text-xs md:text-base ${
+                className={`rounded-box bg-base-100 p-2 text-sm md:text-base ${
                   toggleNavbarMenu ? "flex" : "hidden"
                 }`}
               >
@@ -96,7 +96,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                       handleCategoryClick(null);
                     }}
                   >
-                    <div className="w-full text-xs sm:text-sm">Todos</div>
+                    <div className="w-full text-sm">Todos</div>
                   </button>
                 </li>
                 {categories?.map((category) => {
@@ -118,7 +118,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                           handleCategoryClick(category._id);
                         }}
                       >
-                        <div className="w-full text-center text-xs sm:text-sm">
+                        <div className="w-full text-center text-sm">
                           {category.title}
                         </div>
                       </button>
@@ -178,6 +178,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
         {/* TODO: cambiar items-start */}
         <div
           className={`grid w-full grid-cols-[repeat(auto-fit,minmax(200px,_1fr))] items-start justify-end gap-4 md:gap-6`}
+          onClick={e => setToggleNavbarMenu(false)}
         >
           {categoriesToShow?.map((category) => {
             const categoryProducts = category.products;
