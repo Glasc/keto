@@ -69,26 +69,25 @@ export const Categories = ({ categories }: CategoriesProps) => {
         {/* mobile */}
         <section className="sticky top-2 z-50 flex justify-center pb-6 font-medium md:hidden">
           <ul className="menu menu-horizontal mx-auto w-full">
-            <li></li>
             <li
               tabIndex={0}
-              className="rounded-full bg-primary text-sm text-primary-content"
+              className="rounded-full w-full sm:w-auto mx-auto bg-primary text-sm text-primary-content flex justify-center"
             >
-              <div onClick={() => setToggleNavbarMenu(true)}>
+              <div className="text-center w-full sm:w-auto justify-center text-xs sm:text-sm md:text-base" onClick={() => setToggleNavbarMenu(true)}>
                 <RiArrowDownSLine size={20} />
                 Categoría:
                 <span className="block">{currentCategoryName || "Todos"}</span>
               </div>
 
               <ul
-                className={`rounded-box bg-base-100 p-2 ${
+                className={`rounded-box bg-base-100 p-2 w-full text-xs md:text-base ${
                   toggleNavbarMenu ? "flex" : "hidden"
                 }`}
               >
                 <li
                   className={`${
                     !selectedCategory && "bg-primary"
-                  } text-sm text-primary-content`}
+                  } text-primary-content`}
                 >
                   <button
                     onClick={() => {
@@ -97,7 +96,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                       handleCategoryClick(null);
                     }}
                   >
-                    <div className="w-full text-sm">Todos</div>
+                    <div className="w-full text-xs sm:text-sm">Todos</div>
                   </button>
                 </li>
                 {categories?.map((category) => {
@@ -119,7 +118,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
                           handleCategoryClick(category._id);
                         }}
                       >
-                        <div className="w-full text-center text-sm">
+                        <div className="w-full text-center text-xs sm:text-sm">
                           {category.title}
                         </div>
                       </button>
@@ -128,7 +127,6 @@ export const Categories = ({ categories }: CategoriesProps) => {
                 })}
               </ul>
             </li>
-            <li></li>
           </ul>
         </section>
 
@@ -179,7 +177,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
 
         {/* TODO: cambiar items-start */}
         <div
-          className={`grid w-full grid-cols-[repeat(auto-fit,minmax(240px,_1fr))] items-start justify-end gap-4 md:gap-6`}
+          className={`grid w-full grid-cols-[repeat(auto-fit,minmax(200px,_1fr))] items-start justify-end gap-4 md:gap-6`}
         >
           {categoriesToShow?.map((category) => {
             const categoryProducts = category.products;
@@ -191,13 +189,13 @@ export const Categories = ({ categories }: CategoriesProps) => {
                   className={`card-compact card ${
                     categoryProducts.length > 1
                       ? "w-full"
-                      : "mx-auto w-[250px] md:mx-0"
+                      : "mx-auto sm:w-[250px] md:mx-0"
                   } new-box rounded-md bg-base-100 shadow ring-1 ring-slate-900/5`}
                 >
                   <figure className="border-none">
                     {product?.image && (
                       <img
-                        className="w-full max-w-xs select-none"
+                        className="w-full select-none"
                         src={`${product?.image}?w=400&fm=webp`}
                         alt={product?.description}
                       />
