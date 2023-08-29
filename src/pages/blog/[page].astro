@@ -58,7 +58,7 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
       return { ...post, publishedAt: transformDate(post.publishedAt) };
     });
 
-    return paginate(listOfPostWithTransformedData, { pageSize: 2 });
+    return paginate(listOfPostWithTransformedData, { pageSize: 10 });
   } catch (err) {
     console.log("Oops!");
     return [];
